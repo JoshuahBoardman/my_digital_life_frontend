@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro'; import TerminalWindow from '../components/TerminalWindow.astro';
+import Card from '../components/Card.astro'; 
+import TerminalWindow from '../components/TerminalWindow.astro';
+import NavButton from '../components/NavButton.astro';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -52,6 +54,7 @@ import Card from '../components/Card.astro'; import TerminalWindow from '../comp
 			<Card
 				href="https://astro.build/themes/"
 				title="Themes"
+                    Hello
 				body="Explore a galaxy of community-built starter themes."
 			/>
 			<Card
@@ -59,9 +62,8 @@ import Card from '../components/Card.astro'; import TerminalWindow from '../comp
 				title="Community"
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
-
             <TerminalWindow title="blog_one" height="h-8" width="w-8" 
-            backgroundColor="bg-red-700" borderColor="border-green-500">
+            backgroundColor="bg-ebony-clay" borderColor="border-green-500">
                 <h1>Hello</h1>
             </TerminalWindow> 
 		</ul>
@@ -95,7 +97,7 @@ import Card from '../components/Card.astro'; import TerminalWindow from '../comp
 		margin-bottom: 1em;
 	}
 	.text-gradient {
-		background-image: var(--accent-gradient);
+		<background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;

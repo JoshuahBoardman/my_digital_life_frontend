@@ -7,22 +7,16 @@ type Props = {
     borderColor: string;
 };
 
-let {title, width, height, backgroundColor, borderColor} = Astro.props;
+const {title, width, height, backgroundColor, borderColor} = Astro.props;
+
 ---
 
-<div class={`${borderColor} border-solid border-4 rounded-2xl`}>
-    <div class={`flex justify-center align-middle p-2 border-b-4 ${borderColor} ${backgroundColor}/50 rounded-t-2xl`}>
+<div class={`${borderColor} border-solid border-4 rounded-2xl overflow-hidden shadow-neo-brute`}>
+    <!-- TODO: find out why the backgroundColor wont go transparent -->
+    <div class={`flex justify-center align-middle p-2 border-b-4 ${borderColor} ${backgroundColor}/50`}>
         <h1>{title}</h1>
     </div>
-    <div class={`flex justify-center align-middle p-6 ${backgroundColor} rounded-b-2xl`}>
-       <!--Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-quia. Quo neque error repudiandae fuga? -->
+    <div class={`flex justify-center align-middle p-6 ${backgroundColor}`}> 
         <slot />
     </div>
 </div>

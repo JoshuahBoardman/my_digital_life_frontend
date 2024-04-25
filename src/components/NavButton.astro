@@ -1,0 +1,17 @@
+---
+type Props = {
+    //width: float;
+    //height: float;
+    backgroundColor: string;
+    svgColor: string;
+}
+
+const {backgroundColor, svgColor} = Astro.props;
+
+---
+
+<div class={`${backgroundColor} rounded-2xl drop-shadow-2xl p-2.5`}>
+    <svg class={`${svgColor}`}>
+        </slot />
+    </svg>
+</div>
