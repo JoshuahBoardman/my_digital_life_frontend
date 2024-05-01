@@ -13,7 +13,8 @@ export default {
             'mischka': '#DCDCE6',
         },
         boxShadow: {
-           'neo-brute': '10px 10px 5px 0px rgba(0,0,0,0.75)', 
+            'neo-brute': '10px 10px 5px 0px rgba(0,0,0,0.8)',
+            'inset': 'inset 0px 2px 6px 0px rgba(0, 0, 0, 0.5)',
         },
 		extend: {},
 	},
