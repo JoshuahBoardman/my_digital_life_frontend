@@ -1,13 +1,12 @@
 ---
 type Props = {
 	title: string
-    //width: string;
-    height: string;
     backgroundColor: string;
     borderColor: string;
+    titleColor: string;
 };
 
-const {title, backgroundColor, borderColor, height} = Astro.props;
+const {title, backgroundColor, borderColor, titleColor} = Astro.props;
 
 ---
 
@@ -15,9 +14,9 @@ const {title, backgroundColor, borderColor, height} = Astro.props;
 shadow-neo-brute shadow-ebony-clay w-full`}>
     <!-- TODO: find out why the backgroundColor wont go transparent -->
     <div class={`flex justify-center align-middle p-2 border-b-2 ${borderColor} ${backgroundColor}/75`}>
-        <h1>{title}</h1>
+        <h1 class={`${titleColor} font-semibold`}>{title}</h1>
     </div>
-    <div class={`flex justify-center item-center p-6 shadow-inset ${backgroundColor} ${height}`}>
+    <div class={`flex justify-center item-center p-6 shadow-inset ${backgroundColor}`}>
         <slot />
     </div>
 </div>
