@@ -1,17 +1,13 @@
 ---
 type Props = {
-    width: string;
-    height: string;
     backgroundColor: string;
     svgColor: string;
 }
 
-const {width, height, backgroundColor, svgColor} = Astro.props;
+const {backgroundColor, svgColor} = Astro.props;
 
 ---
 
-<div class={`w-fit ${backgroundColor} rounded-2xl shadow-neo-brute shadow-ebony-clay p-2.5`}> 
-    <svg class={`${svgColor} block m-auto ${height} ${width}`}  viewBox="0 0 100 100"> 
+<div class={`w-fit ${backgroundColor} flex justify-center items-center rounded-2xl shadow-neo-brute shadow-ebony-clay p-2.5 ${svgColor}`}> 
         <slot name="svg" /> 
-    </svg> 
 </div>
