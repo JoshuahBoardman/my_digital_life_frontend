@@ -12,7 +12,6 @@ const {title, backgroundColor, borderColor, titleColor} = Astro.props;
 
 <div class={`${borderColor} border-solid border-2 rounded-2xl overflow-hidden 
 shadow-neo-brute shadow-ebony-clay w-full`}>
-    <!-- TODO: find out why the backgroundColor wont go transparent -->
     <div class={`flex justify-center align-middle p-2 border-b-2 ${borderColor} ${backgroundColor}/75 backdrop-blur`}>
         <h1 class={`${titleColor} font-semibold`}>{title}</h1>
     </div>

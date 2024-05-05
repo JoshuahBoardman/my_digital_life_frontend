@@ -1,0 +1,26 @@
+--- 
+type Props = { 
+    tabs: { 
+        name: string; 
+        url: string;
+        focused: boolean;
+    }[];
+    unfocusedTabColor: string;
+}
+
+const {tabs, unfocusedTabColor} = Astro.props;
+
+const tabNumber = tabs.length;
+const tabWidth = Math.floor(12/tabs.length);
+
+---
+
+<div id="terminal_tabs" class="flex justify-start items-center w-full text-periwinkle-gray">
+{tabs.map((tab) => (
+    <div class={`p-2.5 border-t-2 border-e-2 rounded-tr-2xl border-periwinkle-gray w-${tabNumber > 1 ? tabWidth + "/12" : "full"} 
+    flex justify-center items-center ${tab.focused || unfocusedTabColor} ${tab.focused || "border-b-2"}`}>
+        <a href=`/${tab.url}`>{tab.name}</a>
+    </div>
+    )
+)}
+</div> 

@@ -1,0 +1,18 @@
+---
+import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+import Tabs from '../components/Tabs.astro';
+
+const tabs = [
+    {name: "Introduction",url: "/about_me", focused: true},
+    {name: "Background", url: "/about_me/background", focused: false},
+    {name: "Goals", url: "/about_me/goals", focused: false},
+];
+
+---
+
+<PageWrapperLayout title='About Me'>
+    <TerminalWindow title='about_me' backgroundColor='bg-ebony-clay' borderColor="border-texas" titleColor="text-mischka">
+        <Tabs tabs={tabs} unfocusedTabColor='bg-tuna'/>
+    </TerminalWindow>
+</PageWrapperLayout>
