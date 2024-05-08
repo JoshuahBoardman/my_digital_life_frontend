@@ -2,12 +2,14 @@
 type Props = {
     backgroundColor: string;
     svgColor: string;
+    hasShadow?: boolean;
 }
 
-const {backgroundColor, svgColor} = Astro.props;
+const {backgroundColor, svgColor, hasShadow=true} = Astro.props;
 
 ---
 
-<div class={`w-fit ${backgroundColor} flex justify-center items-center rounded-2xl shadow-neo-brute shadow-ebony-clay p-2.5 ${svgColor}`}> 
+<div class={`w-fit ${backgroundColor} flex justify-center items-center rounded-2xl 
+${hasShadow && 'shadow-neo-brute'} shadow-ebony-clay p-2.5 ${svgColor}`}> 
         <slot name="svg" /> 
 </div>

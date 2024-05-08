@@ -13,6 +13,38 @@ const tabs = [
 
 <PageWrapperLayout title='About Me'>
     <TerminalWindow title='about_me' backgroundColor='bg-ebony-clay' borderColor="border-texas" titleColor="text-mischka">
-        <Tabs tabs={tabs} unfocusedTabColor='bg-tuna'/>
+        <div class="w-full flex flex-col gap-y-6 text-periwinkle-gray text-xl">
+            <Tabs tabs={tabs} unfocusedTabColor='bg-tuna'/>
+            <div id="placeholder_image" class="self-center w-full bg-mischka h-96 rounded-2xl"/>
+            <div class="border-b-2 border-periwinkle-gray">
+                <h2 class="text-2xl font-bold pb-3.5">Joshuah Boardman<h2>
+            </div>
+            <div>
+                <p>🔭 I’m currently working on a game engine</p>
+            </div>
+            <div>
+                <p>🌱 I’m currently learning Rust and game development</p>
+            </div>
+            <div>
+                <p>👨‍💻 All of my projects are available at <a>joshuahboardman.com</a></p>
+            </div>
+            <div>
+                <p>📝 When I have things to talk about I write articles on TBD</p>
+            </div>
+            <div>
+                <p>📫 How to reach me joshuahboardman@gmail.com</p>
+            </div>
+            <div>
+                <p>📄 Know about my experiences Resume</p>
+            </div>
+            <div class="w-fit flex self-center bg-texas">
+                <div class="w-10 h-10 bg-mischka"></div>
+                <div class="w-10 h-10 bg-santas-gray"></div>
+                <div class="w-10 h-10 bg-periwinkle-gray"></div>
+                <div class="w-10 h-10 bg-madang"></div>
+                <div class="w-10 h-10 bg-texas"></div>
+                <div class="w-10 h-10 bg-sundown"></div>
+            </div>
+        <div>
     </TerminalWindow>
 </PageWrapperLayout>
