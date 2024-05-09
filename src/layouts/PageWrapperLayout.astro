@@ -3,9 +3,10 @@ import NavButtonLayout from "../layouts/NavButtonLayout.astro";
 
 interface Props {
 	title: string;
+    isHome?: boolean;
 }
 
-const { title } = Astro.props; 
+const { title, isHome=false} = Astro.props; 
 ---
 
 <!doctype html>
@@ -19,9 +20,9 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-tuna flex flex-col items-center">
-
+        <!-- Swap to a grid layout for easiter transition to larger screen sizes -->
         <main class="w-11/12 flex-col space-y-8 py-8">
-            <NavButtonLayout />
+            <NavButtonLayout isHome={isHome}/>
 	      	<slot />
         </main>
 	</body>

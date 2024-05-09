@@ -1,0 +1,51 @@
+---
+type Props = {
+    title: string;
+    /*shortDescription: string;
+    description: string; 
+    postedDate: string;*/
+    /*backgroundColor: string;
+    borderColor: string;
+    textColor: string;*/
+};
+
+const {title, /*shortDescription, description, postedDate, backgroundColor, borderColor, textColor*/} = Astro.props;
+---
+
+<div class="bg-tuna w-full flex flex-col justify-center p-2 rounded-2xl border-2 border-periwinkle-gray">
+    <div class="text-mischka w-full flex gap-y-2 flex-col justify-center ">
+        <div class=`flex justify-between w-full border-2 p-2 rounded-2xl border-2 border-periwinkle-gray`>
+            <h2 class="font-semibold font-xl">{title}</h2>
+            <!-- Technology Icons -->
+            <div class="flex gap-x-2 items-center">
+                <div class="bg-texas rounded-2xl overflow-hidden w-4 h-4"> 
+                   <!-- <img /> -->
+                </div>
+                <div class="bg-texas rounded-2xl overflow-hidden w-4 h-4"> 
+                    <!-- <img /> -->
+                </div>
+                <div class="bg-texas rounded-2xl overflow-hidden w-4 h-4"> 
+                   <!-- <img /> -->
+                </div>
+            </div>
+        </div>
+        <div class="w-full rounded-2xl border-2 border-periwinkle-gray overflow-hidden">
+            <!-- IMAGE -->
+            <!-- placeholder for image -->
+            <div class="w-full h-64 bg-mischka"></div>
+        </div>
+        <div class="w-full p-2 rounded-2xl border-2 border-periwinkle-gray">
+            <!--{shortDescription}-->
+            Front-end DOM manipulation
+        </div>
+        <div class="w-full p-2 rounded-2xl border-2 border-periwinkle-gray">
+            <!-- description -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus  interdum lobortis tellus, ac rutrum ligula. Nunc sem tellus, fringilla  ac lobortis ac, iaculis aliquam nibh.</p>
+        </div>
+        <div class="w-full">
+            <!-- Posted: {postedDate} -->
+            Posted: 2/12/23
+        </div>
+        <!--<div id="button" class="p-2 rounded-2xl border-2 border-periwinkle-gray">Read More</div>-->
+    </div>
+</div>
