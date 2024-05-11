@@ -3,6 +3,8 @@ import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
 import Tabs from '../components/Tabs.astro';
 
+export const prerender = true
+
 const tabs = [
     {name: "Introduction",url: "/about_me", focused: true},
     {name: "Background", url: "/about_me/background", focused: false},

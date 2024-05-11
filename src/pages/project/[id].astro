@@ -1,0 +1,49 @@
+---
+import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
+import TerminalWindow from '../../components/TerminalWindow.astro';
+
+const project = {
+    title: 'Anime Insight',
+    shortDescription: 'Find just the right anime for whatever mood you may be feeling',
+    description: 'Anime Insight is a web sight designed to help you find anime when you are not sure what to watch.',
+    concepts: [],
+    technologies: [],
+    date: '8_12_2021',
+    sections: [
+        {
+            header: 'Introduction', 
+            body: 'This is the stuffs and things. Very long articles promise'
+        }
+    ],
+}
+
+const {id} = Astro.params;
+
+---
+
+<PageWrapperLayout title={project.title}>
+    <TerminalWindow title={`project_${id}`} backgroundColor='bg-ebony-clay' borderColor="border-texas" titleColor="text-mischka">
+    <div class="w-full flex items-center justify-center flex-col gap-y-6">
+        <div class="w-full h-64 bg-mischka rounded-2xl"></div>
+        <h2>{project.title}</h2>
+        <div>{project.shortDescription}</div>
+        <div>{project.concepts}</div>
+        <div>
+            Concepts: 
+        </div>
+        <div>
+            Technologies:
+        </div>
+        <div>
+            <p>Description: {project.description}</p>
+        </div>
+        <div>
+            <!-- Button -->
+            Repo
+        </div>
+        <article>
+            <h3>{project.sections[0].header}:</h3>
+        </article>
+    </div>
+    </TerminalWindow>
+</PageWrapperLayout>

@@ -1,6 +1,8 @@
 ---
 import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
+
+export const prerender = true
 ---
 <PageWrapperLayout title="Root" isHome={true}>
     <TerminalWindow title="introduction_message" backgroundColor="bg-ebony-clay" borderColor="border-texas" titleColor="text-mischka">

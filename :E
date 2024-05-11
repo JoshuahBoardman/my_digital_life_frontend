@@ -1,0 +1,23 @@
+---
+import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
+import TerminalWindow from '../../components/TerminalWindow.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { id: '1' } },
+    { params: { id: '2' } },
+    { params: { id: '3' } }
+  ];
+}
+
+const { id } = Astro.params;
+
+const project = {
+    title: "project_001"
+}
+---
+
+<PageWrapperLayout title={project.title}>
+    <TerminalWindow title={project.title} backgroundColor='bg-ebony-clay' borderColor="border-texas" titleColor="text-mischka">
+    </TerminalWindow>
+</PageWrapperLayout>

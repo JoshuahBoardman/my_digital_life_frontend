@@ -2,10 +2,28 @@
 import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
 import PortfolioCard from '../components/PortfolioCard.astro';
+
+
+const theme = {
+        backgroundColor: 'bg-tuna',
+        borderColor: 'border-periwinkle-gray',
+        textColor: 'text-mischka',
+    };
+
+const projects = [{
+        title: 'Wordle Clone',
+        shortDescription: 'Front-end DOM manipulation',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus  interdum lobortis tellus, ac rutrum ligula. Nunc sem tellus, fringilla  ac lobortis ac, iaculis aliquam nibh.',  
+        postedDate: '2/12/23',
+    }];
 ---
 
 <PageWrapperLayout title='Portfolio'>
     <TerminalWindow title='portfolio' backgroundColor='bg-ebony-clay' borderColor="border-texas" titleColor="text-mischka">
-       <PortfolioCard title='Wordle Clone'/> 
+    <div class="flex items-center justify-center flex-col gap-y-6"> 
+        {projects.map(project => (
+            <PortfolioCard project={project} theme={theme} />
+        ))}
+    </div>
     </TerminalWindow>
 </PageWrapperLayout>
