@@ -1,6 +1,8 @@
 ---
 import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../../components/TerminalWindow.astro';
+import Btn from '../../components/Btn.astro';
+import type {Theme} from '../../types.ts';
 
 // TODO: Define a project type
 const project = {
@@ -26,53 +28,58 @@ const project = {
     ],
 }
 
+const theme: Theme = {
+        backgroundColor: 'ebony-clay',
+        borderColor: 'mischka',
+        textColor: 'madang',
+};
+
 const {id} = Astro.params;
 
 ---
 
 <PageWrapperLayout title={project.title}>
     <TerminalWindow title={`project_${id}`} backgroundColor='bg-ebony-clay' borderColor="border-texas" titleColor="text-mischka">
-    <div class="w-full flex items-center justify-center flex-col gap-y-6 text-mischka text-xl">
-        <div class="w-full h-64 bg-mischka rounded-2xl"></div>
-        <div class="w-full flex flex-row justify-start items-center">
-            <h2 class="text-4xl">{project.title}</h2>
-        </div>
-        <div class="w-full flex flex-row justify-start items-center">
-            <div class="italic">{project.shortDescription}</div>
-        </div>
-        <div class="w-full flex flex-row justify-start items-center">
-            <div>
-                <span class="font-semibold">Posted:</span> 
-                {project.date}
+    <div class="w-full flex flex-col justify-center text-xl text-mischka">
+        <div class="w-full flex items-center justify-center flex-col gap-y-6">
+            <div class="w-full h-64 bg-mischka rounded-2xl"></div>
+            <div class="w-full flex flex-row justify-start items-center">
+                <h2 class="text-4xl">{project.title}</h2>
+            </div>
+            <div class="w-full flex flex-row justify-start items-center">
+                <div class="italic">{project.shortDescription}</div>
+            </div>
+            <div class="w-full flex flex-row justify-start items-center">
+                <div>
+                    <span class="font-semibold">Posted:</span> 
+                    {project.date}
+                </div>
+            </div>
+            <div class="w-full flex flex-row justify-start items-center">
+                <div>
+                    <span class="font-semibold">Concepts:</span> 
+                    {project.concepts.join(', ')}
+                </div>
+            </div>
+            <div class="w-full flex flex-row justify-start items-center">
+                <div>
+                    <span class="font-semibold">Technologies:</span> 
+                    {project.technologies.join(', ')}
+                </div>
+            </div>
+            <div class="w-full flex flex-row justify-start items-center">
+                <p>
+                    <span class="font-semibold">Description:</span> 
+                    {project.description}
+                </p>
+            </div>
+            <div class="w-full flex flex-row justify-start items-center">
+                <Btn link={project.repo} theme={theme}>
+                    Repo
+                </Btn>
             </div>
         </div>
-        <div class="w-full flex flex-row justify-start items-center">
-            <div>
-                <span class="font-semibold">Concepts:</span> 
-                {project.concepts.join(', ')}
-            </div>
-        </div>
-        <div class="w-full flex flex-row justify-start items-center">
-            <div>
-                <span class="font-semibold">Technologies:</span> 
-                {project.technologies.join(', ')}
-            </div>
-        </div>
-        <div class="w-full flex flex-row justify-start items-center">
-            <p>
-                <span class="font-semibold">Description:</span> 
-                {project.description}
-            </p>
-        </div>
-        <div class="w-full flex flex-row justify-start items-center">
-            <!-- TODO: Refactor int component -->
-            <a href={project.repo}class="flex justify-center items-center py-2 px-4 border-2 border-madang 
-            rounded-2xl text-madang shadow-neo-brute font-semibold">
-                <!-- Button -->
-                Repo
-            </a>
-        </div>
-        <article class="flex flex-col justify-center items-center gap-y-6 pt-8">
+        <article class="w-full flex flex-col justify-center items-center gap-y-6 pt-8">
            {project.sections.map(section => (
                <div class="w-full flex flex-row justify-start items-center">
                     <h3 class="text-3xl">{section.header}:</h3>
