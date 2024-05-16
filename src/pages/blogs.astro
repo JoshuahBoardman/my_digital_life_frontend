@@ -1,0 +1,52 @@
+---
+import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+import Btn from '../components/Btn.astro';
+
+import type {Theme} from '../types.ts';
+
+const theme: Theme = {
+        backgroundColor: 'bg-ebony-clay',
+        borderColor: 'border-madang',
+        textColor: 'text-madang',
+};
+
+
+---
+
+<PageWrapperLayout title='Blogs' >
+    <TerminalWindow title='blog_posts' backgroundColor='bg-ebony-clay' 
+    borderColor="border-texas" titleColor="text-mischka">
+        <div class="w-full flex flex-col justify-center items-center">
+        <!-- TODO: Refactor out into a card components or maybe just a wrapper for content -->
+            <div class="w-full flex flex-col justify-center items-center text-mischka gap-y-2.5 p-3 border-2 rounded-2xl border-periwinkle-gray">
+                <div class="w-full flex flex-row justify-start items-center">
+                    <h2 class="text-2xl font-bold">
+                        Fundimentals of OOP and Why it Not What You Think
+                    </h2>
+                </div>
+                <div class="w-full flex flex-row justify-start items-center">
+                    <div class="text-xl font-medium">
+                        <!--TODO: Each section of this metadata will be gnerated with js -->
+                        <span>8_12_2022</span> | 
+                        <span>25 min read</span> | 
+                        <span>#oop, #fundamentals, #debate</span>
+                    </div>
+                </div>
+                <div class="w-full flex flex-row justify-start items-center">
+                    <!-- TODO: limit the length of this section to a certain 
+                    number of characters (maybe based on screen size -->
+                    <p class="text-base">
+                        lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, 
+                        <!-- TODO: add inline left padding to this element 
+                        to seperate a bit from paragraph -->
+                        <span>...</span>
+                    </p>
+                </div>
+                <div class="w-full flex flex-row justify-end items-center">
+                    <Btn link={'/'} theme={theme}>Read More</Btn>
+                </div>
+            </div>
+        </div>
+    </TerminalWindow>
+</PageWrapperLayout>

@@ -9,8 +9,8 @@ type Props = {
 const {link, theme} = Astro.props;
 
 ---
-
-<a href={link} class=`flex justify-center items-center py-2 px-4 border-2 bg-${theme.backgroundColor} border-${theme.borderColor} 
-    rounded-2xl text-${theme.textColor} shadow-neo-brute font-semibold`>
+<!-- TODO: make a more suddle in terminal shadow (for the button) -->
+<a href={link} class={`flex justify-center items-center py-2 px-4 border-2 ${theme.backgroundColor} ${theme.borderColor} 
+    rounded-2xl ${theme.textColor} shadow-neo-brute font-semibold {theme.shadowColor}`}>
     <slot />
 </a>

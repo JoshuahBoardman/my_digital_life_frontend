@@ -4,6 +4,8 @@ import TerminalWindow from '../../components/TerminalWindow.astro';
 import Btn from '../../components/Btn.astro';
 import type {Theme} from '../../types.ts';
 
+const {id} = Astro.params;
+
 // TODO: Define a project type
 const project = {
     title: 'Anime Insight',
@@ -29,12 +31,11 @@ const project = {
 }
 
 const theme: Theme = {
-        backgroundColor: 'ebony-clay',
-        borderColor: 'mischka',
-        textColor: 'madang',
+        backgroundColor: 'bg-ebony-clay',
+        borderColor: 'border-madang',
+        textColor: 'text-madang',
 };
 
-const {id} = Astro.params;
 
 ---
 
