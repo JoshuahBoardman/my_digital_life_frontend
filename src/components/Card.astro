@@ -28,7 +28,7 @@ p-3 border-2 rounded-2xl ${cardTheme.borderColor}`}>
         <div class="text-xl font-medium">
             <!--TODO: Each section of this metadata will be gnerated with js -->
             <span>{metaData.date}</span> | 
-            <span>{metaData.readTime}</span> | 
+            <span>{`${metaData.readTime.toString()} min read`}</span> | 
             <span>{metaData.tags.join(', ')}</span>
         </div>
     </div>

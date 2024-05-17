@@ -4,39 +4,79 @@ import TerminalWindow from '../../components/TerminalWindow.astro';
 
 const {id} = Astro.params;
 
+const blog = {
+    title: 'Fundamentals of OOP and Why Its Not What You Think',
+    description: 'How object orient design has deviated from what its purpose.',
+    metaData: {
+            date: '8_12_2022',
+            readTime: 25,
+            tags: ['#oop', '#fundamentals', '#debate']
+        },
+    sections: [
+        {
+            header: 'OOP Core Concepts', 
+            //TODO: might want to break each section body up into paragraphs
+            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus accumsan nulla. Quisque sed tempor turpis. Nunc'
+        },
+        {
+            header: 'Origins of OOP', 
+            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus accumsan nulla. Quisque sed tempor turpis. Nunc '
+        },
+        {
+            header: 'Current OOP Philosophy', 
+            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus accumsan nulla. Quisque sed tempor turpis. Nunc '
+        },
+        {
+            header: 'Contrast Between OOP In The Past And Now', 
+            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus accumsan nulla. Quisque sed tempor turpis. Nunc '
+        }, {
+            header: 'Conclusions', 
+            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. MLorem ipsum dolor sit amet, consectetur adipiscing elit.'
+        }
+    ],
+}
+
 ---
 
 <PageWrapperLayout title='Blogs' >
     <TerminalWindow title={`blog_post_${id}`} backgroundColor='bg-ebony-clay' 
     borderColor="border-texas" titleColor="text-mischka">
-        <article class="w-full flex flex-col justify-center items-center gap-y-6">
-            <header>
-                <div>
-                    <h2>Fundamentals of OOP and Why Its Not What You Think</h2>
+        <article class="w-full flex flex-col justify-center items-center gap-y-8 text-mischka">
+            <header class="w-full flex flex-col justify-center items-center gap-y-6">
+                <div class="w-full flex flex-row justify-start items-center">
+                    <h2 class="text-3xl font-bold">{blog.title}</h2>
                 </div>
-                <div>
-                    <div>How object orient design has deviated from what its purpose</div>
+                <div class="w-full flex flex-row justify-start items-center">
+                    <div class="text-xl italic">{blog.description}</div>
                 </div>
-                <div>
-                    <div>
-                        <span></span> | 
-                        <span></span> | 
-                        <span></span> | 
+                <div class="w-full flex flex-row justify-start items-center">
+                    <div class="text-xl font-medium">
+                        <span>{blog.metaData.date}</span> | 
+                        <span>{blog.metaData.readTime.toString()} min read</span> | 
+                        <span>{blog.metaData.tags.join(', ')}</span>
                     </div>
                 </div>
-                <div>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                <div class="w-full flex flex-col justify-center items-start py-4 border-y-2 gap-2">
+                    <h4 class="text-2xl font-semibold">Contents:</h3>
+                    <ul class="list-disc list-inside text-lg flex flex-col gap-2">
+                    <!-- TODO: dynamiclly generate list items -->
+                    {blog.sections.map(section => (
+                        <!-- TODO: correct the links -->
+                        <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`}>{section.header}</a></li>
+                        ))}
                     </ul>
                 </div>
             </header>
-            <section>
+           <!-- TODO: Refactor to use md --> 
+            {blog.sections.map(section => (
+                <section>
+                   <h3 id={section.header.replaceAll(' ', '-').toLowerCase()} class="text-2xl font-semibold">{section.header}</h3> 
+                   <div class="pt-4">
+                        <p>{section.body}</p>            
+                   </div>
+               </section> 
 
-            </section> 
-        </article>
+            ))}
+                    </article>
     </TerminalWindow>
 </PageWrapperLayout>
