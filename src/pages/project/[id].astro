@@ -41,55 +41,53 @@ const theme: Theme = {
 
 <PageWrapperLayout title={project.title}>
     <TerminalWindow title={`project_${id}`} backgroundColor='bg-ebony-clay' borderColor="border-texas" titleColor="text-mischka">
-    <div class="w-full flex flex-col justify-center text-xl text-mischka">
-        <div class="w-full flex items-center justify-center flex-col gap-y-6">
-            <div class="w-full h-64 bg-mischka rounded-2xl"></div>
-            <div class="w-full flex flex-row justify-start items-center">
-                <h2 class="text-4xl">{project.title}</h2>
-            </div>
-            <div class="w-full flex flex-row justify-start items-center">
-                <div class="italic">{project.shortDescription}</div>
-            </div>
-            <div class="w-full flex flex-row justify-start items-center">
-                <div>
-                    <span class="font-semibold">Posted:</span> 
-                    {project.date}
+        <article class="w-full flex flex-col justify-center text-xl text-mischka gap-y-8">
+            <header class="w-full flex items-center justify-center flex-col gap-y-6">
+                <div class="w-full h-64 bg-mischka rounded-2xl"></div>
+                <div class="w-full flex flex-row justify-start items-center">
+                    <h2 class="text-4xl">{project.title}</h2>
                 </div>
-            </div>
-            <div class="w-full flex flex-row justify-start items-center">
-                <div>
-                    <span class="font-semibold">Concepts:</span> 
-                    {project.concepts.join(', ')}
+                <div class="w-full flex flex-row justify-start items-center">
+                    <div class="italic">{project.shortDescription}</div>
                 </div>
-            </div>
-            <div class="w-full flex flex-row justify-start items-center">
-                <div>
-                    <span class="font-semibold">Technologies:</span> 
-                    {project.technologies.join(', ')}
+                <div class="w-full flex flex-row justify-start items-center">
+                    <div>
+                        <span class="font-semibold">Posted:</span> 
+                        {project.date}
+                    </div>
                 </div>
-            </div>
-            <div class="w-full flex flex-row justify-start items-center">
-                <p>
-                    <span class="font-semibold">Description:</span> 
-                    {project.description}
-                </p>
-            </div>
-            <div class="w-full flex flex-row justify-start items-center">
-                <Btn link={project.repo} theme={theme}>
-                    Repo
-                </Btn>
-            </div>
-        </div>
-        <article class="w-full flex flex-col justify-center items-center gap-y-6 pt-8">
-           {project.sections.map(section => (
-               <div class="w-full flex flex-row justify-start items-center">
-                    <h3 class="text-3xl">{section.header}:</h3>
+                <div class="w-full flex flex-row justify-start items-center">
+                    <div>
+                        <span class="font-semibold">Concepts:</span> 
+                        {project.concepts.join(', ')}
+                    </div>
                 </div>
-                <div class="w-full flex flex-row justify-start items-center text-base">
-                    <p>{section.body}</p>
+                <div class="w-full flex flex-row justify-start items-center">
+                    <div>
+                        <span class="font-semibold">Technologies:</span> 
+                        {project.technologies.join(', ')}
+                    </div>
                 </div>
-           ))} 
+                <div class="w-full flex flex-row justify-start items-center">
+                    <p>
+                        <span class="font-semibold">Description:</span> 
+                        {project.description}
+                    </p>
+                </div>
+                <div class="w-full flex flex-row justify-start items-center">
+                    <Btn link={project.repo} theme={theme}>
+                        Repo
+                    </Btn>
+                </div>
+            </header>
+               {project.sections.map(section => (
+                    <section class="w-full">
+                            <h3 class="text-3xl">{section.header}:</h3>
+                        <div class="w-full text-base pt-4">
+                            <p>{section.body}</p>
+                        </div>
+                    </section>
+               ))} 
         </article>
-    </div>
     </TerminalWindow>
 </PageWrapperLayout>

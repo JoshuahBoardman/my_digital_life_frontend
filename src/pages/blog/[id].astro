@@ -1,0 +1,42 @@
+---
+import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
+import TerminalWindow from '../../components/TerminalWindow.astro';
+
+const {id} = Astro.params;
+
+---
+
+<PageWrapperLayout title='Blogs' >
+    <TerminalWindow title={`blog_post_${id}`} backgroundColor='bg-ebony-clay' 
+    borderColor="border-texas" titleColor="text-mischka">
+        <article class="w-full flex flex-col justify-center items-center gap-y-6">
+            <header>
+                <div>
+                    <h2>Fundamentals of OOP and Why Its Not What You Think</h2>
+                </div>
+                <div>
+                    <div>How object orient design has deviated from what its purpose</div>
+                </div>
+                <div>
+                    <div>
+                        <span></span> | 
+                        <span></span> | 
+                        <span></span> | 
+                    </div>
+                </div>
+                <div>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </header>
+            <section>
+
+            </section> 
+        </article>
+    </TerminalWindow>
+</PageWrapperLayout>
