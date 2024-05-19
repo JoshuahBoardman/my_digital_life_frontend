@@ -8,8 +8,8 @@ type Props = {
 const {backgroundColor, svgColor, hasShadow=true} = Astro.props;
 
 ---
-
+<!-- TODO: play with different paddings -->
 <div class={`w-fit ${backgroundColor} flex justify-center items-center rounded-2xl 
-${hasShadow && 'shadow-neo-brute'} shadow-ebony-clay p-2.5 ${svgColor}`}> 
+${hasShadow && 'shadow-neo-brute'} shadow-ebony-clay p-1.5 ${svgColor}`}> 
         <slot name="svg" /> 
 </div>
