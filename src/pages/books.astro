@@ -1,0 +1,34 @@
+---
+import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+import Tabs from '../components/Tabs.astro'
+
+const books = {
+        'fiction': {
+            'fantasy': [],
+            'sciFi': [],
+            },
+        'nonFiction': {
+            'computerScience': [],
+            'mathamatics': [],
+        }
+    }
+
+const tabs = Object.keys(books).map((genre, index) => {
+    return { 
+        name: genre,
+        url: '/',
+        focused: (index === 0)
+    };
+});
+
+---
+
+<PageWrapperLayout title='Blogs' >
+    <TerminalWindow title='blog_posts' backgroundColor='bg-ebony-clay' 
+    borderColor="border-texas" titleColor="text-mischka">
+        <div class="w-full flex flex-col justify-center items-center gap-y-6">
+            <Tabs tabs={tabs} unfocusedTabColor='bg-tuna' />
+        </div>
+    </TerminalWindow>
+</PageWrapperLayout>
