@@ -1,0 +1,26 @@
+---
+type Props = {
+   height: string;
+   items: {
+       imageLink: string;
+       altText: string;
+       navLink: string;
+       bgColor?: string;
+    }[];
+};
+
+const {height, items} = Astro.props;
+
+---
+
+
+<div class="w-full inline-flex overflow-x-scroll snap-mandatory snap-x scroll-smooth gap-x-4">
+    {items.map(item => (
+        <figure class="w-full box-content flex flex-none snap-center">
+            <a href={item.navLink} class="w-full rounded-2xl flex justify-center items-center 
+                overflow-hidden">
+                <img src={item.imageLink} alt={item.altText} class=`w-full ${height} ${item.bgColor}`/>
+            </a>
+        </figure>
+    ))}
+</div>

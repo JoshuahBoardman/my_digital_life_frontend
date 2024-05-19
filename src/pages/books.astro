@@ -1,12 +1,47 @@
 ---
 import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
-import Tabs from '../components/Tabs.astro'
+import Tabs from '../components/Tabs.astro';
+import ImageCarousel from '../components/ImageCarousel.astro';
 
 const books = {
         'fiction': {
-            'fantasy': ['bg-texas', 'bg-sundown', 'bg-madang'],
-            'sciFi': ['bg-texas', 'bg-sundown', 'bg-madang'],
+            'fantasy': [
+                    { imageLink: '/',
+                    altText: 'altText',
+                    navLink: '/',
+                    bgColor: 'bg-texas'
+                    }, 
+
+                    { imageLink: '/',
+                    altText: 'altText',
+                    navLink: '/',
+                    bgColor: 'bg-sundown'
+                    }, 
+
+                    { imageLink: '/',
+                    altText: 'altText',
+                    navLink: '/',
+                    bgColor: 'bg-madang'
+                    }
+                ],
+            'sciFi': [
+                    { imageLink: '/',
+                    altText: 'altText',
+                    navLink: '/',
+                    bgColor: 'bg-texas'
+                    }, {
+                        imageLink: '/',
+                    altText: 'altText',
+                    navLink: '/',
+                    bgColor: 'bg-sundown'
+                    }, {
+                    imageLink: '/',
+                    altText: 'altText',
+                    navLink: '/',
+                    bgColor: 'bg-madang'
+                    }
+                ],
             },
         'nonFiction': {
             'computerScience': [],
@@ -48,15 +83,7 @@ for (let i = 0; i < tabs.length; i++) {
                     <div class="w-full border-b-2 pb-4">
                         <h2 class="font-semibold text-4xl">{section}</h2>
                     </div>
-                    <!-- TODO: Refactor into a carosel component -->
-                    <div class="w-full inline-flex overflow-x-scroll snap-mandatory snap-x scroll-smooth gap-x-4">
-                    {books[currentTab][section].map(book => (
-                        <figure class="w-full box-content flex flex-none snap-center">
-                            <!-- TODO: make this an image -->
-                            <div class={`w-full h-96 rounded-2xl ${book}`}/>
-                        </figure>
-                    ))}
-                    </div>
+                    <ImageCarousel height="h-96" items={books[currentTab][section]} />
                 </section>
             ))}
         </div>
