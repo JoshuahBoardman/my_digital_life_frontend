@@ -5,8 +5,8 @@ import Tabs from '../components/Tabs.astro'
 
 const books = {
         'fiction': {
-            'fantasy': [],
-            'sciFi': [],
+            'fantasy': ['bg-texas', 'bg-sundown', 'bg-madang'],
+            'sciFi': ['bg-texas', 'bg-sundown', 'bg-madang'],
             },
         'nonFiction': {
             'computerScience': [],
@@ -22,13 +22,43 @@ const tabs = Object.keys(books).map((genre, index) => {
     };
 });
 
+let currentTab = '';
+
+for (let i = 0; i < tabs.length; i++) {
+    if (tabs[i].focused !== true) continue;
+    currentTab = tabs[i].name;
+    break;
+}
+
 ---
 
-<PageWrapperLayout title='Blogs' >
-    <TerminalWindow title='blog_posts' backgroundColor='bg-ebony-clay' 
+<PageWrapperLayout title='Books' >
+    <TerminalWindow title='book_shelf' backgroundColor='bg-ebony-clay' 
     borderColor="border-texas" titleColor="text-mischka">
-        <div class="w-full flex flex-col justify-center items-center gap-y-6">
-            <Tabs tabs={tabs} unfocusedTabColor='bg-tuna' />
+        <div class="w-full flex flex-col justify-center items-center gap-y-10 text-mischka">
+            <header class="w-full flex flex-col justify-center items-center gap-y-8">
+                <Tabs tabs={tabs} unfocusedTabColor='bg-tuna' />
+                <div class='w-full'>
+                    <div class="italic text-xl ">List of books {currentTab} books I have read</div>
+                </div>
+            </header>
+
+            { Object.keys(books[currentTab]).map(section => (
+                 <section class="w-full flex flex-col justify-center items-center gap-y-6">
+                    <div class="w-full border-b-2 pb-4">
+                        <h2 class="font-semibold text-4xl">{section}</h2>
+                    </div>
+                    <!-- TODO: Refactor into a carosel component -->
+                    <div class="w-full inline-flex overflow-x-scroll snap-mandatory snap-x scroll-smooth gap-x-4">
+                    {books[currentTab][section].map(book => (
+                        <figure class="w-full box-content flex flex-none snap-center">
+                            <!-- TODO: make this an image -->
+                            <div class={`w-full h-96 rounded-2xl ${book}`}/>
+                        </figure>
+                    ))}
+                    </div>
+                </section>
+            ))}
         </div>
     </TerminalWindow>
 </PageWrapperLayout>
