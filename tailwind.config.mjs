@@ -18,5 +18,27 @@ export default {
         },
 		extend: {},
 	},
-	plugins: [],
+    daisyui: {
+        themes: [
+          {
+            vaporWaveFantasyDark: {
+                "primary": "#C4C5E7",
+                "primary-content": "#232538",
+                "secondary": "#BBF3B5",
+                "secondary-content": "#232538",
+                "accent": "#FBF0A3",
+                "accent-content": "#232538",
+                "neutral": "#232538",
+                "neutral-content": "#DCDCE6",
+                "base-100": "#313346",
+                "base-content": "#DCDCE6",
+                "default": "#9397B0",
+                "error": "#FFB3B2",
+            },
+          },
+         ],
+      },
+	  plugins: [
+        require('daisyui'),
+    ],
 }

@@ -1,15 +1,12 @@
 ---
 type Props = {
-    backgroundColor: string;
-    svgColor: string;
+    hasBackground?: boolean
     hasShadow?: boolean;
 }
 
-const {backgroundColor, svgColor, hasShadow=true} = Astro.props;
+const {hasShadow=true, hasBackground=true} = Astro.props;
 
 ---
-<!-- TODO: play with different paddings -->
-<div class={`w-fit ${backgroundColor} flex justify-center items-center rounded-2xl 
-${hasShadow && 'shadow-neo-brute'} shadow-ebony-clay p-1.5 ${svgColor}`}> 
+<a class={`${hasBackground ? 'btn-primary' : 'btn-link'} btn btn-square ${hasShadow && 'shadow-neo-brute'} shadow-ebony-clay`}> 
         <slot name="svg" /> 
-</div>
+</a>

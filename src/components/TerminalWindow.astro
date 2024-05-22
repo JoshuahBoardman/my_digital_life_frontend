@@ -1,22 +1,31 @@
 ---
 type Props = {
 	title: string;
-    backgroundColor: string;
+    /*backgroundColor: string;
     borderColor: string;
-    titleColor: string;
+    titleColor: string;*/
 };
-
-const {title, backgroundColor, borderColor, titleColor} = Astro.props;
+const {title, /*backgroundColor, borderColor, titleColor*/} = Astro.props;
 
 ---
 
-<div class={`${borderColor} border-solid border-2 rounded-2xl overflow-hidden 
+<!-- <div class={`${borderColor} border-solid border rounded-2xl overflow-hidden 
 shadow-neo-brute shadow-ebony-clay w-full`}>
-    <div class={`flex justify-center align-middle p-2 border-b-2 ${borderColor} ${backgroundColor}/75 backdrop-blur`}>
-    <!-- TODO: change this to h2 and all wrapped pages to h1 because this header is just for show -->
-        <h1 class={`${titleColor} font-semibold text-xl`}>{title}</h1>
+    <div class={`flex justify-center align-middle p-3 ${borderColor} bg-neutral/75 backdrop-blur`}>
+        <h2 class={`${titleColor} font-medium text-lg`}>{title}</h2>
     </div>
-    <div class={`flex justify-center item-center p-6 shadow-inset ${backgroundColor}`}>
-        <slot />
+    <div class={`flex justify-center item-center p-6  bg-base-200`}>
+        <slot name="yes"/>
+    </div>
+</div> -->
+
+
+<div class="mockup-window border-2 border-accent shadow-neo-brute shadow-ebony-clay bg-base-200 
+        backdrop-blur bg-neutral/75 ">
+   <div class="w-full border-b-2 border-accent absolute top-3 flex justify-center items-center pb-3">
+      <h2 class="self-center text-lg self-end font-medium">{title}</h2>
+    </div> 
+    <div class="w-full flex justify-center item-center p-6 bg-neutral overflow-hidden">
+        <slot />  
     </div>
 </div>
