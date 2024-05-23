@@ -4,11 +4,12 @@ import type { Theme } from '../types.js';
 type Props = {
     link: string;
     //theme: Theme;
-    btnColor?: string;
+    width?: string;
+    color?: string;
     solid?: boolean;
 }
 
-const {link, btnColor="btn-secondary", solid=true, /*theme*/} = Astro.props;
+const {link, width="w-full", color="btn-secondary", solid=true, /*theme*/} = Astro.props;
 
 ---
 <!-- TODO: make a more suddle in terminal shadow (for the button) -->
@@ -18,7 +19,7 @@ const {link, btnColor="btn-secondary", solid=true, /*theme*/} = Astro.props;
     <slot />
 </a> -->
 
-<a href={link} class={`btn ${solid || 'btn-outline'} ${btnColor} w-full 
+<a href={link} class={`btn ${solid || 'btn-outline'} ${color} ${width} 
 rounded-2xl shadow-neo-brute font-semibold text-lg`}>
     <slot />
 </a>

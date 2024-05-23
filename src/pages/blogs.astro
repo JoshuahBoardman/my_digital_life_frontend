@@ -3,30 +3,27 @@ import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
 import Card from '../components/Card.astro';
 
-import type {Theme} from '../types.ts';
-
-const buttonTheme: Theme = {
-        backgroundColor: 'bg-ebony-clay',
-        borderColor: 'border-madang',
-        textColor: 'text-madang',
-};
-
-const cardTheme: Theme = {
-        backgroundColor: 'bg-ebony-clay',
-        borderColor: 'border-periwinkle-gray',
-        textColor: 'text-mischka',
-};
-
 const blogCards = [
     {
         title: 'Fundamentals of OOP and Why Its Not What You Think',
         metaData: {
             date: '8_12_2022',
-            readTine: 25,
-            tags: ['#oop', '#fundamentals', '#debate']
+            readTime: 25,
+            tags: ['oop', 'fundamentals', 'debate']
         },
-        postSnippet: 'lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,'
+        postSnippet: 'lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,',
+        href: "/blog/1",
     },
+{
+        title: 'Fundamentals of OOP and Why Its Not What You Think',
+        metaData: {
+            date: '8_12_2022',
+            readTime: 25,
+            tags: ['oop', 'fundamentals', 'debate']
+        },
+        postSnippet: 'lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,',
+        href: "/blog/1",
+    }
 ];
 
 
@@ -37,7 +34,7 @@ const blogCards = [
         <div class="w-full flex flex-col justify-center items-center gap-y-6">
             {blogCards.map(card => (
                 <Card title={card.title} metaData={card.metaData} 
-                postSnippet={card.postSnippet} cardTheme={cardTheme} buttonTheme={buttonTheme}/>
+                postSnippet={card.postSnippet} href={card.href}/>
             ))}
         </div>
     </TerminalWindow>
