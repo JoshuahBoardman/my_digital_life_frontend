@@ -1,23 +1,26 @@
 --- 
-
 type Props = { 
     tabs: { 
         name: string; 
         url: string;
         focused: boolean;
     }[];
-    unfocusedTabColor: string;
 }
 
-const {tabs, unfocusedTabColor} = Astro.props;
+const {tabs} = Astro.props;
 
 ---
-
-<div id="terminal_tabs" class="grid grid-flow-col auto-cols-auto w-full text-periwinkle-gray">
+<!-- <div id="terminal_tabs" class="grid grid-flow-col auto-cols-auto w-full text-periwinkle-gray">
     {tabs.map((tab) => (
         <div class={`p-2.5 border-t-2 border-e-2 rounded-tr-2xl border-periwinkle-gray flex justify-center 
         items-center ${tab.focused || unfocusedTabColor} ${tab.focused || "border-b-2"}`}>
             <a href=`/${tab.url}`>{tab.name}</a>
         </div>
     ))}
-</div> 
+</div> -->
+<div role="tablist" class="tabs tabs-lifted tabs-lg">
+    {tabs.map((tab) => (
+    <a role='tab' href={tab.url} class={`tab tab-border-2 ${tab.focused && 'tab-active'} 
+        [--tab-bg:base-100] [--tab-border-color:secondary] text-secondary rounded-t-2xl`}>{tab.name}</a>
+    ))}
+</div>
