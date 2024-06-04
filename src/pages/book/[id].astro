@@ -11,7 +11,9 @@ const book = {
         rating: 4.5,
         review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!',
         finished: true,
-    };
+};
+
+const testing123 = "checked"
 
 ---
 
@@ -23,7 +25,7 @@ const book = {
                     <img src="/" alt="alt" class="w-full h-96 bg-mischka "/>
                 </figure>
             </div>
-            <div class="w-full w-full flex flex-col justify-center items-center gap-y-8">
+            <div class="w-full flex flex-col justify-center items-center gap-y-8">
                 <header class="w-full flex flex-col justify-center items-center gap-y-6">
                     <div class="w-full">
                         <h2 class="text-4xl font-semibold">{book.title}</h2>
@@ -35,14 +37,26 @@ const book = {
                         <div class="text-xl"><span class="font-semibold">Description:</span> {book.description}</div>
                     </div>
                 </header>
-                <section class="w-full flex flex-col justify-center items-center gap-y-6"
+                <section class="w-full flex flex-col justify-center items-center gap-y-6">
                     <div class="w-full">
-                    <!-- TODO: make this display starts or some other shape and make it so they can be a percentage full -->
-                        <div class="w-full text-xl"><span class="font-semibold">Rating</span> {'*'.repeat(Math.floor(book.rating))}</div>
+                        <!-- TODO: set the 'checked' attribute on the rating float rounded down  -->
+                        <div class="w-full text-xl flex justify-center items-center gap-2">
+                            <span class="font-semibold">Rating: </span> 
+                            <span class="rating rating-md rating-half w-full">
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-1" />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-2" />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-1" />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-2" />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-1" />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-2" />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-1" checked />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-2" />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-1" />
+                              <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-2" />
+                            </span>
+                        </div>
                     </div>
-                    <div class="w-full text-xl"><span class="font-semibold">Review:</span> {book.review}</div>
-                </section>
-                <section>
+                    <p class="w-full text-xl"><span class="font-semibold">Review:</span> {book.review}</p>
                 </section>
             </div>
         </div>
