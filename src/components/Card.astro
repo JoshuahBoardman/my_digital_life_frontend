@@ -14,7 +14,7 @@ const {title, metaData, postSnippet, href} = Astro.props;
 ---
 
 <div class="card card-bordered border-primary w-full bg-none rounded-2xl">
-  <div class="card-body">
+  <div class="card-body gap-y-3">
     <h2 class="card-title font-bold text-primary">{title}</h2>
     <div class="text-santas-gray"><span>{metaData.readTime} min read</span> | <span>{metaData.date}</span></div>
     <div class="card-actions items-center justify-start">

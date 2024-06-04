@@ -76,8 +76,7 @@ for (let i = 0; i < tabs.length; i++) {
                     <div class="italic text-xl ">List of books {currentTab} books I have read</div>
                 </div>
             </header>
-
-            { Object.keys(books[currentTab]).map(section => (
+            {Object.keys(books[currentTab]).map(section => (
                  <section class="w-full flex flex-col justify-center items-center gap-y-6">
                     <div class="w-full border-b-2 pb-4">
                         <h2 class="font-semibold text-4xl">{section}</h2>

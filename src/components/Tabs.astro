@@ -18,7 +18,8 @@ const {tabs} = Astro.props;
         </div>
     ))}
 </div> -->
-<div role="tablist" class="tabs tabs-lifted tabs-lg">
+<!-- TODO: Might want to make this an island component -->
+<div role="tablist" class="tabs tabs-lifted tabs-lg w-full">
     {tabs.map((tab) => (
     <a role='tab' href={tab.url} class={`tab tab-border-2 ${tab.focused && 'tab-active'} 
         [--tab-bg:base-100] [--tab-border-color:secondary] text-secondary rounded-t-2xl`}>{tab.name}</a>
