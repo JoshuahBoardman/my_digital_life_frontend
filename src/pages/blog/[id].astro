@@ -58,14 +58,14 @@ const blog = {
                     </div>
                 </div>
                 <div class="w-full flex flex-col justify-center items-start py-4 border-y-2 gap-2">
-                    <h4 class="text-2xl font-semibold">Contents:</h3>
-                    <ul class="list-disc list-inside text-lg flex flex-col gap-2">
+                    <h4 class="text-2xl font-semibold">Contents:</h4>
+                    <ol class="list-disc list-inside text-lg flex flex-col gap-2">
                     <!-- TODO: dynamiclly generate list items -->
                     {blog.sections.map(section => (
                         <!-- TODO: correct the links -->
                         <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`}>{section.header}</a></li>
                         ))}
-                    </ul>
+                    </ol>
                 </div>
             </header>
            <!-- TODO: Refactor to use md --> 

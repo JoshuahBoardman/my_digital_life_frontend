@@ -75,10 +75,19 @@ const theme: Theme = {
                         {project.description}
                     </p>
                 </div>
-                <div class="w-full flex flex-row justify-start items-center">
+                <div class="w-full flex flex-row justify-start items-center pb-3">
                     <Btn link={project.repo} solid={false} >
                         Repo
                     </Btn>
+                </div>
+                <div class="w-full flex flex-col justify-center items-start py-4 border-y-2 gap-2">
+                    <h4 class="text-2xl font-semibold">Content:</h4>
+                    <ol class="list-disc list-inside text-lg flex flex-col gap-2">
+                        {project.sections.map(section => (
+                        <li><a href={`#${section.header}`}>{section.header}</a></li>    
+                        ))}
+                        
+                    </ol>
                 </div>
             </header>
             <!-- TODO: Create a content section -->
