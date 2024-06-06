@@ -6,7 +6,7 @@ import ImageCarousel from '../components/ImageCarousel.astro';
 
 const books = {
         'fiction': {
-            'fantasy': [
+            'fantasy' : [
                     { imageLink: '/',
                     altText: 'altText',
                     navLink: '/',
@@ -71,7 +71,7 @@ for (let i = 0; i < tabs.length; i++) {
     <TerminalWindow title='book_shelf'>
         <div class="w-full flex flex-col justify-center items-center gap-y-10 text-mischka">
             <header class="w-full flex flex-col justify-center items-center gap-y-8">
-                <Tabs tabs={tabs} unfocusedTabColor='bg-tuna' />
+                <Tabs tabs={tabs} />
                 <div class='w-full'>
                     <div class="italic text-xl ">List of books {currentTab} books I have read</div>
                 </div>

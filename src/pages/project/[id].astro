@@ -25,17 +25,20 @@ const project = {
         {
             header: 'Introduction 2', 
             body: 'This is the stuffs and things. Very long articles promise 2'
+        },
+{
+            header: 'Introduction 3', 
+
+            //TODO: might want to break each section body up into paragraphs
+            body: 'This is the stuffs and things. Very long articles promise'
+        },
+        {
+            header: 'Introduction 4', 
+            body: 'This is the stuffs and things. Very long articles promise 2'
         }
 
     ],
 }
-
-const theme: Theme = {
-        backgroundColor: 'bg-ebony-clay',
-        borderColor: 'border-madang',
-        textColor: 'text-madang',
-};
-
 
 ---
 
@@ -44,7 +47,9 @@ const theme: Theme = {
         <article class="w-full flex flex-col justify-center text-xl text-mischka gap-y-8 ">
             <!-- TODO: Refactor into a project header layout -->
             <header class="w-full flex items-center justify-center flex-col gap-y-6">
-                <div class="w-full h-64 bg-mischka rounded-2xl"></div>
+                <figure class="w-full h-96 bg-mischka rounded-2xl overflow-hidden">
+                    <img src="/" alt="Placholder Img">
+                </figure>
                 <div class="w-full flex flex-row justify-start items-center">
                     <h2 class="text-4xl">{project.title}</h2>
                 </div>
@@ -57,17 +62,17 @@ const theme: Theme = {
                         {project.date}
                     </div>
                 </div>
-                <div class="w-full flex flex-row justify-start items-center">
-                    <div>
+                    <div class="w-full flex flex-row items-center justify-start gap-2 flex-wrap">
                         <span class="font-semibold">Concepts:</span> 
-                        {project.concepts.join(', ')}
+                    {project.concepts.map(concept => (
+                        <div class="badge badge-outline badge-accent">#{concept}</div>
+                    ))}
                     </div>
-                </div>
-                <div class="w-full flex flex-row justify-start items-center">
-                    <div>
+                <div class="w-full flex flex-row justify-start items-center gap-2 flex-wrap">
                         <span class="font-semibold">Technologies:</span> 
-                        {project.technologies.join(', ')}
-                    </div>
+                        {project.technologies.map(concept => (
+                            <div class="badge badge-outline badge-accent">#{concept}</div>
+                        ))}
                 </div>
                 <div class="w-full flex flex-row justify-start items-center">
                     <p>
@@ -84,7 +89,7 @@ const theme: Theme = {
                     <h4 class="text-2xl font-semibold">Content:</h4>
                     <ol class="list-disc list-inside text-lg flex flex-col gap-2">
                         {project.sections.map(section => (
-                        <li><a href={`#${section.header}`}>{section.header}</a></li>    
+                        <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`} class="link link-hover">{section.header}</a></li>    
                         ))}
                         
                     </ol>
@@ -94,7 +99,7 @@ const theme: Theme = {
 
             <!-- TODO: Refactor to use md -->
                {project.sections.map(section => (
-                    <section class="w-full">
+            <section id={section.header.replaceAll(' ', '-').toLowerCase()}class="w-full">
                             <h3 class="text-3xl">{section.header}:</h3>
                         <div class="w-full text-base pt-4">
                             <p>{section.body}</p>
