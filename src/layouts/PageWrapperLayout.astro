@@ -17,7 +17,9 @@ const { title, isHome=false} = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
 	<body class="bg-tuna">
@@ -32,17 +34,8 @@ const { title, isHome=false} = Astro.props;
 </html>
 <style is:global>
 	html {
-		font-family: system-ui, sans-serif;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+        font-family: "VT323", "Bitstream Vera Sans Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
 	}
 </style>

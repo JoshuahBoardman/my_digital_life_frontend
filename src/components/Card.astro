@@ -13,7 +13,7 @@ type Props = {
 const {title, metaData, postSnippet, href} = Astro.props;
 ---
 
-<div class="card card-bordered border-primary w-full bg-none rounded-2xl">
+<div class="card card-bordered border-primary w-full bg-none rounded-regular">
   <div class="card-body gap-y-3">
     <h2 class="card-title font-bold text-primary">{title}</h2>
     <div class="text-santas-gray"><span>{metaData.readTime} min read</span> | <span>{metaData.date}</span></div>
@@ -26,7 +26,7 @@ const {title, metaData, postSnippet, href} = Astro.props;
     <!-- TODO: limit the length of the postSnippet -->
     <p>{postSnippet} ...</p>
     <div class="card-actions justify-end">
-      <a href={href} class="btn btn-outline btn-secondary rounded-2xl">Read More</a>
+      <a href={href} class="btn btn-outline btn-secondary rounded-regular">Read More</a>
     </div>
   </div>
 </div>

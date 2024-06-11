@@ -16,7 +16,7 @@ const {height, items} = Astro.props;
 <div class="carousel carousel-center w-full gap-x-4 relative">
     {items.map(item => (
         <figure class="carousel-item w-9/12">
-            <a href={item.navLink} class="w-full rounded-2xl flex justify-center items-center 
+            <a href={item.navLink} class="w-full rounded-regular flex justify-center items-center 
                 overflow-hidden">
                 <img src={item.imageLink} alt={item.altText} class=`w-full ${height} ${item.bgColor}`/>
             </a>

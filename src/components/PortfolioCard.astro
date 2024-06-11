@@ -11,32 +11,32 @@ type Props = {
 const {project} = Astro.props;
 ---
 <!-- New Daisy UI Version -->
-<div class=`card card-bordered border-2 border-primary rounded-2xl p-3 flex flex-col gap-y-2 
+<div class=`card card-bordered border-2 border-primary rounded-regular p-3 flex flex-col gap-y-2 
 bg-base-100 relative`>
-    <div class="w-full flex items-center justify-between border-2 border-primary rounded-2xl p-2"> <h2 class="card-title">{project.title}</h2>
+    <div class="w-full flex items-center justify-between border-2 border-primary rounded-regular p-2"> <h2 class="card-title">{project.title}</h2>
         <div class="flex gap-2">
             <!-- TODO: make this dynamiclay generated -->
-            <img src="/" class="bg-texas rounded-2xl overflow-hidden w-4 h-4" /> 
-            <img src="/" class="bg-texas rounded-2xl overflow-hidden w-4 h-4" /> 
-            <img src="/" class="bg-texas rounded-2xl overflow-hidden w-4 h-4" /> 
+            <img src="/" class="bg-texas rounded-regular overflow-hidden w-4 h-4" /> 
+            <img src="/" class="bg-texas rounded-regular overflow-hidden w-4 h-4" /> 
+            <img src="/" class="bg-texas rounded-regular overflow-hidden w-4 h-4" /> 
         </div>
     </div>
-    <figure class="border-2 border-primary rounded-2xl w-full overflow-hidden">
+    <figure class="border-2 border-primary rounded-regular w-full overflow-hidden">
         <!-- TODO: make this link based on the database -->
         <img src="/" class="w-full h-64 bg-mischka" />
     </figure>
     <div class="card-body w-full p-0">
-        <div class="p-2 border-2 border-primary rounded-2xl">
+        <div class="p-2 border-2 border-primary rounded-regular">
             <span class="text-lg">{project.shortDescription}</span>
         </div>
-        <div class="px-2 pt-2 pb-7 border-2 border-primary rounded-2xl">
+        <div class="px-2 pt-2 pb-7 border-2 border-primary rounded-regular">
             <!--Add fixed height -->
             <p class="">{project.description}</p>
         </div>
         <div class="w-full flex justify-between items-center">
             <span class="self-end"> Posted: {project.postedDate}</span>
             <div class="card-actions">
-                <a href="/" class="btn btn-primary btn-outline border-2 rounded-2xl 
+                <a href="/" class="btn btn-primary btn-outline border-2 rounded-regular 
                     absolute bottom-5 right-3 bg-base-100 bold">
                     Read More
                 </a>

@@ -13,6 +13,6 @@ const {link, width="w-full", color="btn-secondary", solid=true } = Astro.props;
 
 <!-- TODO: make a more suddle in terminal shadow (for the button) -->
 <a href={link} class={`btn ${solid || 'btn-outline'} ${color} ${width} 
-rounded-2xl shadow-neo-brute font-semibold text-lg`}>
+rounded-regular shadow-neo-brute font-semibold text-lg`}>
     <slot />
 </a>
