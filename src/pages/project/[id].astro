@@ -2,7 +2,6 @@
 import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../../components/TerminalWindow.astro';
 import Btn from '../../components/Btn.astro';
-import type {Theme} from '../../types.ts';
 
 const {id} = Astro.params;
 
@@ -47,36 +46,37 @@ const project = {
         <article class="w-full flex flex-col justify-center text-xl text-mischka gap-y-8 ">
             <!-- TODO: Refactor into a project header layout -->
             <header class="w-full flex items-center justify-center flex-col gap-y-6">
+                <!-- TODO: maybe add repo button to the bottom corner of the page -->
                 <figure class="w-full h-96 bg-mischka rounded-regular overflow-hidden">
                     <img src="/" alt="Placholder Img">
                 </figure>
                 <div class="w-full flex flex-row justify-start items-center">
-                    <h2 class="text-4xl">{project.title}</h2>
+                    <h2 class="text-4xl text-primary">{project.title}</h2>
                 </div>
                 <div class="w-full flex flex-row justify-start items-center">
-                    <div class="italic">{project.shortDescription}</div>
+                    <span class="text-2xl italic">{project.shortDescription}</span>
                 </div>
                 <div class="w-full flex flex-row justify-start items-center">
                     <div>
-                        <span class="font-semibold">Posted:</span> 
+                        <span class="text-2xl text-primary font-semibold">Posted:</span> 
                         {project.date}
                     </div>
                 </div>
                     <div class="w-full flex flex-row items-center justify-start gap-2 flex-wrap">
-                        <span class="font-semibold">Concepts:</span> 
+                        <span class="text-2xl text-primary font-semibold">Concepts:</span> 
                     {project.concepts.map(concept => (
-                        <div class="badge badge-outline badge-accent">#{concept}</div>
+                        <div class="badge badge-outline badge-accent text-xl">#{concept}</div>
                     ))}
                     </div>
                 <div class="w-full flex flex-row justify-start items-center gap-2 flex-wrap">
-                        <span class="font-semibold">Technologies:</span> 
+                        <span class="text-2xl text-primary font-semibold">Technologies:</span> 
                         {project.technologies.map(concept => (
-                            <div class="badge badge-outline badge-accent">#{concept}</div>
+                            <div class="badge badge-outline badge-accent text-xl">#{concept}</div>
                         ))}
                 </div>
                 <div class="w-full flex flex-row justify-start items-center">
                     <p>
-                        <span class="font-semibold">Description:</span> 
+                        <span class="text-2xl text-primary font-semibold">Description:</span> 
                         {project.description}
                     </p>
                 </div>
@@ -85,11 +85,11 @@ const project = {
                         Repo
                     </Btn>
                 </div>
-                <div class="w-full flex flex-col justify-center items-start py-4 border-y-2 gap-2">
-                    <h4 class="text-2xl font-semibold">Content:</h4>
+                <div class="w-full flex flex-col justify-center items-start gap-2">
+                    <h4 class="text-3xl font-semibold">Content:</h4>
                     <ol class="list-disc list-inside text-lg flex flex-col gap-2">
                         {project.sections.map(section => (
-                        <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`} class="link link-hover">{section.header}</a></li>    
+                        <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`} class="link link-hover link-secondary text-xl">{section.header}</a></li>    
                         ))}
                         
                     </ol>
@@ -100,9 +100,9 @@ const project = {
             <!-- TODO: Refactor to use md -->
                {project.sections.map(section => (
             <section id={section.header.replaceAll(' ', '-').toLowerCase()}class="w-full">
-                            <h3 class="text-3xl">{section.header}:</h3>
-                        <div class="w-full text-base pt-4">
-                            <p>{section.body}</p>
+                        <h3 class="text-3xl text-primary">{section.header}:</h3>
+                        <div class="w-full text-base pt-2">
+                            <p class="text-xl">{section.body}</p>
                         </div>
                     </section>
                ))} 

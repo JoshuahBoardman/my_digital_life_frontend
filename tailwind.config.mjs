@@ -20,11 +20,16 @@ export default {
         borderRadius: {
             regular: "0.5rem"
         },
-        /*TODO: border radius .5rem*/
-        /*TODO: font size should have small, medium, and large*/
-        /*TODO: padding should have 2-3 padding sizes*/
-        /*TODO: gap should have 2ish gap sizes*/
-        /*TODO: border should have an in terminal border and a 0 border for out of terminal elements*/
+        // TODO: might want to make the paragraph text a different font for easier reading.
+        fontFamily: {
+            //header:"VT323",
+            text: "Bitstream Vera Sans Mono",
+        },
+        //fontSize: {},//TODO: font size should have small, medium, and large
+        // FontSize - xl: normal text, 2xl: sub-header, 3xl: section header, title: 4xl
+        //padding: {}, //TODO: padding should have 2-3 padding sizes
+        //gap: {}, //TODO: gap should have 2ish gap sizes
+        //borderWidth: {},  //TODO: border should have an in terminal border and a 0 border for out of terminal elements
 		extend: {},
 	},
     daisyui: {

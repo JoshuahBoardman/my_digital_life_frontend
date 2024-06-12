@@ -45,27 +45,27 @@ const blog = {
         <article class="w-full flex flex-col justify-center items-center gap-y-8 text-mischka">
             <header class="w-full flex flex-col justify-center items-center gap-y-6">
                 <div class="w-full flex flex-row justify-start items-center">
-                    <h2 class="text-3xl font-bold">{blog.title}</h2>
+                    <h2 class="text-primary text-4xl font-bold">{blog.title}</h2>
                 </div>
                 <div class="w-full flex flex-row justify-start items-center">
                     <div class="text-xl italic">{blog.description}</div>
                 </div>
                 <div class="flex flex-row flex-wrap justify-start items-center text-xl font-medium gap-2">
                     <span>
-                        <span>{blog.metaData.date} |</span>  
+                        <span >{blog.metaData.date} |</span>  
                         <span>{blog.metaData.readTime.toString()} min read |</span> 
                     </span>
                     {blog.metaData.tags.map(tag => (
-                        <span class="badge badge-outline badge-accent">#{tag}</span>
+                        <span class="badge badge-outline badge-accent text-xl">#{tag}</span>
                     ))}
                 </div>
-                <div class="w-full flex flex-col justify-center items-start py-4 border-y-2 gap-2">
-                    <h4 class="text-2xl font-semibold">Contents:</h4>
-                    <ol class="list-disc list-inside text-lg flex flex-col gap-2">
+                <div class="w-full flex flex-col justify-center items-start gap-2">
+                    <h4 class="text-3xl font-semibold text-primary">Contents:</h4>
+                    <ol class="list-disc list-inside text-xl flex flex-col gap-2">
                     <!-- TODO: dynamiclly generate list items -->
                     {blog.sections.map(section => (
                         <!-- TODO: correct the links -->
-                        <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`} class="link link-hover">{section.header}</a></li>
+                        <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`} class="link link-hover link-secondary">{section.header}</a></li>
                         ))}
                     </ol>
                 </div>
@@ -73,9 +73,9 @@ const blog = {
            <!-- TODO: Refactor to use md --> 
             {blog.sections.map(section => (
                 <section>
-                   <h3 id={section.header.replaceAll(' ', '-').toLowerCase()} class="text-2xl font-semibold">{section.header}</h3> 
-                   <div class="pt-4">
-                        <p>{section.body}</p>            
+                   <h3 id={section.header.replaceAll(' ', '-').toLowerCase()} class="text-3xl font-semibold text-primary">{section.header}</h3> 
+                   <div class="pt-2">
+                        <p class="text-xl">{section.body}</p>            
                    </div>
                </section> 
             ))}
