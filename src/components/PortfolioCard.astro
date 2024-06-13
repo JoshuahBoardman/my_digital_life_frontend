@@ -11,10 +11,10 @@ type Props = {
 const {project} = Astro.props;
 ---
 <!-- New Daisy UI Version -->
-<div class=`card card-bordered border-2 border-primary rounded-regular p-3 flex flex-col gap-y-2 
-bg-base-100 relative`>
-    <div class="w-full flex items-center justify-between border-2 border-primary rounded-regular p-2"> 
-        <h2 class="card-title text-2xl">{project.title}</h2>
+<div class=`card card-bordered border-2 border-primary rounded-regular p-4 flex flex-col  
+bg-base-100 relative gap-2`>
+    <div class="w-full flex items-center justify-between"> 
+        <h2 class="card-title text-3xl text-primary">{project.title}</h2>
         <div class="flex gap-2">
             <!-- TODO: make this dynamiclay generated -->
             <img src="/" class="bg-texas rounded-regular overflow-hidden w-4 h-4" /> 
@@ -22,23 +22,23 @@ bg-base-100 relative`>
             <img src="/" class="bg-texas rounded-regular overflow-hidden w-4 h-4" /> 
         </div>
     </div>
-    <figure class="border-2 border-primary rounded-regular w-full overflow-hidden">
+    <figure class="rounded-regular w-full overflow-hidden">
         <!-- TODO: make this link based on the database -->
         <img src="/" class="w-full h-64 bg-mischka" />
     </figure>
-    <div class="card-body w-full p-0">
-        <div class="p-2 border-2 border-primary rounded-regular">
-            <span class="text-xlg">{project.shortDescription}</span>
+    <div class="card-body w-full p-0 gap-y-2">
+        <div class="rounded-regular">
+            <span class="text-xl">{project.shortDescription}</span>
         </div>
-        <div class="px-2 pt-2 pb-7 border-2 border-primary rounded-regular">
+        <div>
             <!--Add fixed height -->
-            <p class="text-xl">{project.description}</p>
+            <p class="text-xl">{project.description} ...</p>
         </div>
         <div class="w-full flex justify-between items-center">
             <span class="self-end text-lg"> Posted: {project.postedDate}</span>
             <div class="card-actions">
-                <a href="/" class="btn btn-primary btn-outline border-2 rounded-regular 
-                    absolute bottom-5 right-3 bg-base-100 bold text-xl">
+                <a href="/" class="btn btn-secondary btn-outline border-2 rounded-regular 
+                     bg-base-100 text-xl">
                     Read More
                 </a>
             </div>

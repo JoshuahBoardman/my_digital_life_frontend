@@ -33,15 +33,16 @@ const book = {
                     </div>
                     <div class="w-full">
                         <span class="font-medium italic">
-                            <span class="text-primary font-semibold">By:</span> 
+                            <span class="text-2xl text-primary font-semibold">By:</span> 
                             <a class="link link-secondary"href={book.author.wikiLink}>{book.author.name}</a>
                         </span>
                     </div>
-                    <div><span class="text-primary font-semibold">Description:</span> {book.description}</div>
+                    <div><span class="text-2xl text-primary font-semibold">Description:</span> {book.description}</div>
                     <div class="w-full">
                         <!-- TODO: set the 'checked' attribute on the rating float rounded down  -->
                         <div class="w-full text-xl flex justify-center items-center gap-2">
-                            <span class="font-semibold text-primary">Rating: </span> 
+                            <span class="text-2xl font-semibold text-primary">Rating: </span> 
+                            <!-- TODO: make the stars not clickable -->
                             <span class="rating rating-md rating-half w-full">
                               <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-1" />
                               <input type="radio" name="rating-10" class="bg-accent mask mask-star-2 mask-half-2" />
@@ -58,7 +59,7 @@ const book = {
                     </div>
                 </header>
                 <section class="w-full flex flex-col justify-center items-center">
-                    <p class="w-full text-xl"><span class="text-primary font-semibold">Review:</span> {book.review}</p>
+                    <p class="w-full text-xl"><span class="text-2xl text-primary font-semibold">Review:</span> {book.review}</p>
                 </section>
             </div>
         </div>

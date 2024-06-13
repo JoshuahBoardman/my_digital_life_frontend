@@ -69,8 +69,8 @@ for (let i = 0; i < tabs.length; i++) {
 
 <PageWrapperLayout title='Books' >
     <TerminalWindow title='book_shelf'>
-        <div class="w-full flex flex-col justify-center items-center gap-y-10 text-mischka">
-            <header class="w-full flex flex-col justify-center items-center gap-y-8">
+        <div class="w-full flex flex-col justify-center items-center gap-y-6 text-mischka">
+            <header class="w-full flex flex-col justify-center items-center gap-y-6">
                 <Tabs tabs={tabs} />
                 <div class='w-full'>
                     <div class="italic text-xl ">List of books {currentTab} books I have read</div>
@@ -78,7 +78,7 @@ for (let i = 0; i < tabs.length; i++) {
             </header>
             {Object.keys(books[currentTab]).map(section => (
                  <section class="w-full flex flex-col justify-center items-center gap-y-6">
-                    <div class="w-full border-b-2 pb-4">
+                    <div class="w-full border-b-2 pb-2">
                         <h2 class="font-bold text-3xl">{section}</h2>
                     </div>
                     <ImageCarousel height="h-96" items={books[currentTab][section]} />

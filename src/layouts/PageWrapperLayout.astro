@@ -23,7 +23,7 @@ const { title, isHome=false} = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-tuna">
-        <div class="flex flex-col items-center max-w-screen-2xl my-0 mx-auto">
+        <div class="flex flex-col items-center max-w-screen-2xl my-0 mx-auto selection:bg-primary selection:text-base-100">
             <!-- Swap to a grid layout for easiter transition to larger screen sizes -->
             <NavBar isHome={isHome}/>
             <main class="w-11/12 flex-col space-y-8 py-8">

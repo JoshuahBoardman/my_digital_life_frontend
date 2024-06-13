@@ -81,17 +81,16 @@ const project = {
                     </p>
                 </div>
                 <div class="w-full flex flex-row justify-start items-center pb-3">
-                    <Btn link={project.repo} solid={false} >
-                        Repo
-                    </Btn>
+                    <a href={project.repo} class="btn btn-secondary btn-outline btn-block border-regular text-xl">Repo</a>
                 </div>
                 <div class="w-full flex flex-col justify-center items-start gap-2">
-                    <h4 class="text-3xl font-semibold">Content:</h4>
+                    <h4 class="text-3xl font-semibold text-primary">Content:</h4>
                     <ol class="list-disc list-inside text-lg flex flex-col gap-2">
                         {project.sections.map(section => (
-                        <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`} class="link link-hover link-secondary text-xl">{section.header}</a></li>    
+                        <li>
+                            <a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`} class="link link-hover link-secondary text-xl">{section.header}</a>
+                        </li>
                         ))}
-                        
                     </ol>
                 </div>
             </header>
