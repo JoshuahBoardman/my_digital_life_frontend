@@ -72,9 +72,6 @@ for (let i = 0; i < tabs.length; i++) {
         <div class="w-full flex flex-col justify-center items-center gap-y-6 text-mischka">
             <header class="w-full flex flex-col justify-center items-center gap-y-6">
                 <Tabs tabs={tabs} />
-                <div class='w-full'>
-                    <div class="italic text-xl ">List of books {currentTab} books I have read</div>
-                </div>
             </header>
             {Object.keys(books[currentTab]).map(section => (
                  <section class="w-full flex flex-col justify-center items-center gap-y-6">

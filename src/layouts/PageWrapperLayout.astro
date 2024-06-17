@@ -1,5 +1,5 @@
 ---
-import NavBar from "../layouts/NavBar.astro";
+import NavBar from "../components/NavBar.astro";
 
 interface Props {
 	title: string;
@@ -22,19 +22,21 @@ const { title, isHome=false} = Astro.props;
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
-	<body class="bg-tuna">
-        <div class="flex flex-col items-center max-w-screen-2xl my-0 mx-auto selection:bg-primary selection:text-base-100">
-            <!-- Swap to a grid layout for easiter transition to larger screen sizes -->
+    <body class="bg-tuna">
+        <div class="flex flex-col items-center max-w-screen-2xl max-h-screen my-0 mx-auto selection:bg-primary selection:text-base-100">
             <NavBar isHome={isHome}/>
-            <main class="w-11/12 flex-col space-y-8 py-8">
+            <!-- Swap to a grid layout for easiter transition to larger screen sizes -->
+            <!-- TODO: On max size screens maybe make w-12 -->
+            <main class="w-11/12 flex flex-col items-center justify-center  space-y-8 py-8">
                 <slot />
             </main>
         </div>
 	</body>
 </html>
 <style is:global>
-	html {
-        font-family: "VT323", "Bitstream Vera Sans Mono", monospace;
+html {
+        /* TODO: find a good default mono font to contract VT323 headers */
+        font-family: /*"VT323",*/ "Bitstream Vera Sans Mono", monospace;
         font-weight: 400;
         font-style: normal;
 	}

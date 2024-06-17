@@ -20,9 +20,8 @@ export default {
         borderRadius: {
             regular: "0.5rem"
         },
-        // TODO: might want to make the paragraph text a different font for easier reading.
         fontFamily: {
-            //header:"VT323",
+            header:"VT323",
             text: "Bitstream Vera Sans Mono",
         },
         //fontSize: {},//TODO: font size should have small, medium, and large

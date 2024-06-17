@@ -11,6 +11,7 @@ const {tabs} = Astro.props;
 
 ---
 <!-- TODO: Might want to make this an island component -->
+<!-- TODO: Implement a tab scroll bar if the tabs go off the screen -->
 <div role="tablist" class="tabs tabs-lifted tabs-lg w-full">
     {tabs.map((tab) => (
     <a role='tab' href={tab.url} class={`tab tab-border-2 ${tab.focused && 'tab-active'} 
