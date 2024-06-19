@@ -23,11 +23,11 @@ const { title, isHome=false} = Astro.props;
 		<title>{title}</title>
 	</head>
     <body class="bg-tuna">
-        <div class="flex flex-col items-center max-w-screen-2xl max-h-screen my-0 mx-auto selection:bg-primary selection:text-base-100">
-            <NavBar isHome={isHome}/>
+        <div class="flex flex-col items-center justify-center h-screen max-w-screen-2xl max-h-screen my-0 mx-auto selection:bg-primary selection:text-base-100">
             <!-- Swap to a grid layout for easiter transition to larger screen sizes -->
             <!-- TODO: On max size screens maybe make w-12 -->
-            <main class="w-11/12 flex flex-col items-center justify-center  space-y-8 py-8">
+            <main class="w-11/12 flex flex-col h-full items-center justify-evenly 2xl:w-full">
+                <NavBar isHome={isHome}/>
                 <slot />
             </main>
         </div>

@@ -50,14 +50,16 @@ const blog = {
                 <div class="w-full flex flex-row justify-start items-center">
                     <div class="text-xl italic">{blog.description}</div>
                 </div>
-                <div class="flex flex-row flex-wrap justify-start items-center text-xl font-medium gap-2">
+                <div class="w-full flex flex-row flex-wrap justify-start items-center text-xl font-medium gap-2">
                     <span>
                         <span >{blog.metaData.date} |</span>  
                         <span>{blog.metaData.readTime.toString()} min read |</span> 
                     </span>
                     {blog.metaData.tags.map(tag => (
-                        <span class="badge badge-outline badge-accent text-xl">#{tag}</span>
+                        <span class="badge badge-outline badge-accent text-lg">#{tag}</span>
                     ))}
+                    <!-- TODO: limit the number of tags displayed to 3 and add a +n to the end of the tags to indicate the remainder --> 
+                    <span></span>
                 </div>
                 <div class="w-full flex flex-col justify-center items-start gap-2">
                     <h4 class="text-3xl font-semibold text-primary">Contents:</h4>
