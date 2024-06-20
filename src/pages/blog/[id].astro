@@ -1,40 +1,19 @@
 ---
 import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../../components/TerminalWindow.astro';
+import ArticleHeader from '../../layouts/ArticleHeader.astro';
 
 const {id} = Astro.params;
 
 const blog = {
     title: 'Fundamentals of OOP and Why Its Not What You Think',
     description: 'How object orient design has deviated from what its purpose.',
-    metaData: {
-            date: '8_12_2022',
-            readTime: 25,
-        tags: ['oop', 'fundamentals', 'debate',]
-        },
-    sections: [
-        {
-            header: 'OOP Core Concepts', 
-            //TODO: might want to break each section body up into paragraphs
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus accumsan nulla. Quisque sed tempor turpis. Nunc'
-        },
-        {
-            header: 'Origins of OOP', 
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus accumsan nulla. Quisque sed tempor turpis. Nunc '
-        },
-        {
-            header: 'Current OOP Philosophy', 
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus accumsan nulla. Quisque sed tempor turpis. Nunc '
-        },
-        {
-            header: 'Contrast Between OOP In The Past And Now', 
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus accumsan nulla. Quisque sed tempor turpis. Nunc '
-        }, {
-            header: 'Conclusions', 
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. MLorem ipsum dolor sit amet, consectetur adipiscing elit.'
-        }
-    ],
-}
+    date: '8_12_2021', 
+    readTime: 45,
+    tags: ['oop', 'fundamentals', 'debate',],
+    sections: ['OOP Core Concepts', 'Origins of OOP', 'Current OOP Philosophy', 'Contrast Between OOP In The Past And Now', 'Conclusions', ],
+    //imgUrl: "/"
+};
 
 ---
 
@@ -43,41 +22,15 @@ const blog = {
 <PageWrapperLayout title='Blogs' >
     <TerminalWindow title={`blog_post_${id}`}>
         <article class="w-full flex flex-col justify-center items-center gap-y-8 text-mischka">
-            <header class="w-full flex flex-col justify-center items-center gap-y-6">
-                <div class="w-full flex flex-row justify-start items-center">
-                    <h2 class="text-primary text-4xl font-bold">{blog.title}</h2>
-                </div>
-                <div class="w-full flex flex-row justify-start items-center">
-                    <div class="text-xl italic">{blog.description}</div>
-                </div>
-                <div class="w-full flex flex-row flex-wrap justify-start items-center text-xl font-medium gap-2">
-                    <span>
-                        <span >{blog.metaData.date} |</span>  
-                        <span>{blog.metaData.readTime.toString()} min read |</span> 
-                    </span>
-                    {blog.metaData.tags.map(tag => (
-                        <span class="badge badge-outline badge-accent text-lg">#{tag}</span>
-                    ))}
-                    <!-- TODO: limit the number of tags displayed to 3 and add a +n to the end of the tags to indicate the remainder --> 
-                    <span></span>
-                </div>
-                <div class="w-full flex flex-col justify-center items-start gap-2">
-                    <h4 class="text-3xl font-semibold text-primary">Contents:</h4>
-                    <ol class="list-disc list-inside text-xl flex flex-col gap-2">
-                    <!-- TODO: dynamiclly generate list items -->
-                    {blog.sections.map(section => (
-                        <!-- TODO: correct the links -->
-                        <li><a href={`#${section.header.replaceAll(' ', '-').toLowerCase()}`} class="link link-hover link-secondary">{section.header}</a></li>
-                        ))}
-                    </ol>
-                </div>
-            </header>
-           <!-- TODO: Refactor to use md --> 
+            <ArticleHeader articleHeader={blog}/>
+
+
+            <!-- TODO: Refactor to use md --> 
             {blog.sections.map(section => (
-                <section>
-                   <h3 id={section.header.replaceAll(' ', '-').toLowerCase()} class="text-3xl font-semibold text-primary">{section.header}</h3> 
+                <section class="w-full">
+                   <h3 id={section.replaceAll(' ', '-').toLowerCase()} class="text-3xl font-semibold text-primary">{section}</h3> 
                    <div class="pt-2">
-                        <p class="text-xl font-text">{section.body}</p>            
+                        <p class="text-xl font-text">{section}</p>            
                    </div>
                </section> 
             ))}

@@ -1,0 +1,57 @@
+---
+// TODO: Make a articleHeader type
+type Props = {
+    articleHeader: {
+        title: string;
+        description: string;
+        date: string;
+        readTime: number;
+        tags: string[];
+        sections: string[];
+        imgUrl?: string;
+    };
+};
+
+const {articleHeader} = Astro.props;
+---
+
+<header class="w-full flex items-center justify-center flex-col gap-y-6">
+    <!-- TODO: add a repo button to the header image -->
+    { articleHeader.imgUrl && (
+            <figure class="w-full h-96 bg-mischka rounded-regular overflow-hidden">
+                <img src={articleHeader.imgUrl} alt="Placholder Img">
+            </figure>
+        )
+    }
+    <!-- TODO: make the header link to the github repo -->
+    <!-- TODO: maybe put the github logo next to the header to indicate it is a link to github -->
+    <div class="w-full">
+        <h2 class="text-4xl text-primary">{articleHeader.title}</h2>
+    </div>
+    <div class="w-full">
+        <span class="text-xl italic">{articleHeader.description}</span>
+    </div>
+    <div class="w-full flex justify-start items-center text-lg text-primary flex-wrap gap-2">
+        <span>{articleHeader.date}</span> 
+        <span>|</span>
+        <span>{articleHeader.readTime} read time</span>
+        <span>|</span>
+        {articleHeader.tags.map(tag => (
+            <span class="badge badge-outline badge-accent text-lg">#{tag}</span>
+        ))}
+        <!-- TODO: limit the number of tags to 3 and add a +n for each additional tags -->
+        <!-- TODO: make the +n show the list of other tags on hover --> 
+        <span>+2</span> 
+    </div> 
+    <div class="w-full flex flex-col justify-center items-start gap-2">
+        <h4 class="text-3xl font-semibold text-primary">Content:</h4>
+        <ol class="list-disc list-inside text-lg flex flex-col gap-2">
+            {articleHeader.sections.map(section => (
+            <li>
+                <a href={`#${section.replaceAll(' ', '-').toLowerCase()}`} 
+                    class="link link-hover link-secondary text-xl">{section}</a>
+            </li>
+            ))}
+        </ol>
+    </div>
+</header>
