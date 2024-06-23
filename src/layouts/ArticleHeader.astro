@@ -9,10 +9,20 @@ type Props = {
         tags: string[];
         sections: string[];
         imgUrl?: string;
+        repoUrl?: string;
     };
-};
+}
 
 const {articleHeader} = Astro.props;
+
+function groupTags(tags: string[], displayNumber: number): {displayTags: string[], hiddenTags: string[],}  {
+    return {
+        displayTags: tags.slice(0, displayNumber),
+        hiddenTags: tags.slice(displayNumber)
+    } 
+}
+
+const {displayTags, hiddenTags} = groupTags(articleHeader.tags, 3);
 ---
 
 <header class="w-full flex items-center justify-center flex-col gap-y-6">
@@ -23,10 +33,11 @@ const {articleHeader} = Astro.props;
             </figure>
         )
     }
-    <!-- TODO: make the header link to the github repo -->
     <!-- TODO: maybe put the github logo next to the header to indicate it is a link to github -->
     <div class="w-full">
-        <h2 class="text-4xl text-primary">{articleHeader.title}</h2>
+<a href={articleHeader.repoUrl} class={`${(articleHeader.repoUrl && (`link link-secondary link-hover`))}`}>
+            <h2 class="text-4xl">{articleHeader.title}</h2>
+        </a>
     </div>
     <div class="w-full">
         <span class="text-xl italic">{articleHeader.description}</span>
@@ -36,12 +47,16 @@ const {articleHeader} = Astro.props;
         <span>|</span>
         <span>{articleHeader.readTime} read time</span>
         <span>|</span>
-        {articleHeader.tags.map(tag => (
+        {displayTags.map(tag => (
             <span class="badge badge-outline badge-accent text-lg">#{tag}</span>
         ))}
-        <!-- TODO: limit the number of tags to 3 and add a +n for each additional tags -->
-        <!-- TODO: make the +n show the list of other tags on hover --> 
-        <span>+2</span> 
+        {((articleHeader.tags.length - displayTags.length) == 0)? "" :(
+        <span class={`${(articleHeader.tags.length - displayTags.length) == 0 || 
+            (`tooltip tooltip-bottom tooltip-primary`)}`} 
+            data-tip={hiddenTags.map(tag => tag).join(", ")}>
+                <span class="link link-accent link-hover font-semibold">+{articleHeader.tags.length - displayTags.length}</span>
+             </span>
+        )}
     </div> 
     <div class="w-full flex flex-col justify-center items-start gap-2">
         <h4 class="text-3xl font-semibold text-primary">Content:</h4>

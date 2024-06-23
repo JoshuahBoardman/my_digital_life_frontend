@@ -3,6 +3,7 @@ import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../../components/TerminalWindow.astro';
 import Btn from '../../components/Btn.astro';
 import ArticleHeader from '../../layouts/ArticleHeader.astro';
+import { withOptions } from 'tailwindcss/plugin';
 
 const {id} = Astro.params;
 
@@ -11,9 +12,10 @@ const project = {
     description: 'Anime Insight is a web sight designed to help you find anime when you are not sure what to watch.', 
     date: '8_12_2021', 
     readTime: 25,
-    tags: ['apis', 'state_management', 'mobile_first_design'],
+    tags: ['apis', 'state_management', 'mobile_first_design', 'state_management', 'mobile_first_design'],
     sections: ['Introduction', 'Introduction 2', 'Introduction 3',],
-    imgUrl: "/"
+    imgUrl: "/",
+    repoUrl: "/"
 };
 
 ---
