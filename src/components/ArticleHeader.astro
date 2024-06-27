@@ -7,6 +7,7 @@ type Props = {
         date: string;
         readTime: number;
         tags: string[];
+        // TODO: try replacing this with the markdown prop headings
         sections: string[];
         imgUrl?: string;
         repoUrl?: string;
@@ -25,8 +26,7 @@ function groupTags(tags: string[], displayNumber: number): {displayTags: string[
 const {displayTags, hiddenTags} = groupTags(articleHeader.tags, 3);
 ---
 
-<header class="w-full flex items-center justify-center flex-col gap-y-6">
-    <!-- TODO: add a repo button to the header image -->
+<header class="w-full flex items-center justify-center flex-col gap-y-6 pb-6 border-b border-primary"> <!-- TODO: add a repo button to the header image -->
     { articleHeader.imgUrl && (
             <figure class="w-full h-96 bg-mischka rounded-regular overflow-hidden">
                 <img src={articleHeader.imgUrl} alt="Placholder Img">
@@ -36,7 +36,7 @@ const {displayTags, hiddenTags} = groupTags(articleHeader.tags, 3);
     <!-- TODO: maybe put the github logo next to the header to indicate it is a link to github -->
     <div class="w-full">
 <a href={articleHeader.repoUrl} class={`${(articleHeader.repoUrl && (`link link-secondary link-hover`))}`}>
-            <h2 class="text-4xl">{articleHeader.title}</h2>
+            <h2 class={`text-4xl font-semibold ${articleHeader.repoUrl || ('text-primary')}`}>{articleHeader.title}</h2>
         </a>
     </div>
     <div class="w-full">
@@ -59,8 +59,8 @@ const {displayTags, hiddenTags} = groupTags(articleHeader.tags, 3);
         )}
     </div> 
     <div class="w-full flex flex-col justify-center items-start gap-2">
-        <h4 class="text-3xl font-semibold text-primary">Content:</h4>
-        <ol class="list-disc list-inside text-lg flex flex-col gap-2">
+        <h4 class="text-2xl font-semibold text-primary">Content:</h4>
+        <ol class="list-disc list-inside text-lg flex flex-col gap-4">
             {articleHeader.sections.map(section => (
             <li>
                 <a href={`#${section.replaceAll(' ', '-').toLowerCase()}`} 

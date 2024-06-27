@@ -1,9 +1,7 @@
 ---
-import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
-import TerminalWindow from '../../components/TerminalWindow.astro';
-import Btn from '../../components/Btn.astro';
-import ArticleHeader from '../../layouts/ArticleHeader.astro';
-import { withOptions } from 'tailwindcss/plugin';
+import PageWrapperLayout from './PageWrapperLayout.astro';
+import TerminalWindow from '../components/TerminalWindow.astro';
+import ArticleHeader from '../components/ArticleHeader.astro';
 
 const {id} = Astro.params;
 
@@ -26,7 +24,7 @@ const project = {
             <ArticleHeader articleHeader={project} />
             <!-- TODO: Create a content section -->
             <!-- TODO: Refactor to use md -->
-               {project.sections.map(section => (
+            {project.sections.map(section => (
             <section id={section.replaceAll(' ', '-').toLowerCase()}class="w-full">
                         <h3 class="text-3xl text-primary">{section}:</h3>
                         <div class="w-full text-base pt-2">
