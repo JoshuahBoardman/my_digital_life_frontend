@@ -2,13 +2,13 @@
 layout: "../../layouts/blog.astro"
 title: 'Object Oriented Ideas'
 description: 'How object orient design has deviated from what its purpose.'
-date: '8_12_2021'
+publishDate: 2021-04-13
 readTime: 45
 tags: ["oop", "fundamentals", "debate"]
-sections: ['OOP Core Concepts', 'Origins of OOP', 'Current OOP Philosophy', 'Contrast Between Past and Present OOP', 'Conclusions', ]
+draft: true
 ---
 
-## Test One 
+## Test Blog Two
 
 This Markdown file creates a page at `your-domain.com/page-1/`
 

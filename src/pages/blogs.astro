@@ -1,39 +1,28 @@
 ---
+import { getCollection } from 'astro:content';
 import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
 import Card from '../components/Card.astro';
 
-const blogCards = [
-    {
-        title: 'Fundamentals of OOP and Why Its Not What You Think',
-        metaData: {
-            date: '8_12_2022',
-            readTime: 25,
-            tags: ['oop', 'fundamentals', 'debate']
-        },
-        postSnippet: 'lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,',
-        href: "/blog/1",
-    },
-{
-        title: 'Fundamentals of OOP and Why Its Not What You Think',
-        metaData: {
-            date: '8_12_2022',
-            readTime: 25,
-            tags: ['oop', 'fundamentals', 'debate']
-        },
-        postSnippet: 'lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,',
-        href: "/blog/1",
-    }
-];
+const blogEntries = await getCollection('blog');
 
 ---
 
-<PageWrapperLayout title='Blogs' >
+<PageWrapperLayout title='Blogs'>
     <TerminalWindow title='blog_posts'>
         <div class="w-full flex flex-col justify-center items-center gap-y-6">
-            {blogCards.map(card => (
-                <Card title={card.title} metaData={card.metaData} 
-                postSnippet={card.postSnippet} href={card.href}/>
+            {blogEntries.map(blogEntry => (
+            <!-- TODO: change the meta data interface  -->
+                <Card 
+                    title={blogEntry.data.title} 
+                    metaData={{
+                        date: blogEntry.data.publishDate.toDateString(),
+                        readTime: blogEntry.data.readTime,
+                        tags: blogEntry.data.tags,
+                    }}
+                    postSnippet={blogEntry.data.description} 
+                    href={`/blog/${blogEntry.slug}`}
+                />
             ))}
         </div>
     </TerminalWindow>
