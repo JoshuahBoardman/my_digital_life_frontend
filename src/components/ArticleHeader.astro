@@ -1,4 +1,6 @@
 ---
+import type { MarkdownHeading } from 'astro';
+
 // TODO: Make a articleHeader type
 type Props = {
     articleHeader: {
@@ -8,7 +10,7 @@ type Props = {
         readTime: number;
         tags: string[];
         // TODO: try replacing this with the markdown prop headings
-        sections: string[];
+        sections: MarkdownHeading[];
         imgUrl?: string;
         repoUrl?: string;
     };
@@ -61,10 +63,10 @@ const {displayTags, hiddenTags} = groupTags(articleHeader.tags, 3);
     <div class="w-full flex flex-col justify-center items-start gap-2">
         <h4 class="text-2xl font-semibold text-primary">Content:</h4>
         <ol class="list-disc list-inside text-lg flex flex-col gap-4">
-            {articleHeader.sections.map(section => (
+            {articleHeader.sections.filter(section => section.depth === 2).map(section => (
             <li>
-                <a href={`#${section.replaceAll(' ', '-').toLowerCase()}`} 
-                    class="link link-hover link-secondary text-xl">{section}</a>
+                <a href={`#${section.text.replaceAll(' ', '-').toLowerCase()}`} 
+                    class="link link-hover link-secondary text-xl">{section.text}</a>
             </li>
             ))}
         </ol>

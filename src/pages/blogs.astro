@@ -11,7 +11,9 @@ const blogEntries = await getCollection('blog');
 <PageWrapperLayout title='Blogs'>
     <TerminalWindow title='blog_posts'>
         <div class="w-full flex flex-col justify-center items-center gap-y-6">
-            {blogEntries.map(blogEntry => (
+            { blogEntries.sort((a,b) => ( 
+                Date.parse(b.data.publishDate.toDateString()) - Date.parse(a.data.publishDate.toDateString())
+            )).map(blogEntry => (
             <!-- TODO: change the meta data interface  -->
                 <Card 
                     title={blogEntry.data.title} 

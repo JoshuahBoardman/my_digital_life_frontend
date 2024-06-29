@@ -1,14 +1,17 @@
 ---
-layout: "../../layouts/blog.astro"
-title: 'Object Oriented Ideas'
+title: 'Test One'
 description: 'How object orient design has deviated from what its purpose.'
-publishDate: 2021-04-13
+publishDate: 2020-04-13
 readTime: 45
 tags: ["oop", "fundamentals", "debate"]
 draft: false
 ---
 
 ## Test One 
+
+### Second Header 
+
+## Second Test One Levl 2 Header
 
 This Markdown file creates a page at `your-domain.com/page-1/`
 

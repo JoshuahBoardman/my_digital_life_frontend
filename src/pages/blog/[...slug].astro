@@ -1,0 +1,43 @@
+---
+//import type { MarkdownLayoutProps } from 'astro';
+import { getCollection } from 'astro:content';
+import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
+import TerminalWindow from '../../components/TerminalWindow.astro';
+import ArticleHeader from '../../components/ArticleHeader.astro';
+
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+
+console.log(JSON.stringify(headings));
+
+---
+
+<!-- TODO: Look at other peoples blogs and examin their spacings between letters and paragraphs -->
+
+<PageWrapperLayout title='Blogs' >
+    <!-- TODO: set the window titel to the page name from the URL -->
+    <!-- TODO: Create a custom slug for each page, send it through the frontmatter and then display here -->
+    <TerminalWindow title={`test`}>
+        <article class="w-full flex flex-col justify-center items-center gap-y-10 text-mischka">
+            <ArticleHeader articleHeader={{
+                title: entry.data.title,
+                description: entry.data.description,
+                date: entry.data.publishDate.toDateString(),
+                readTime: entry.data.readTime,
+                tags: entry.data.tags,
+                sections: headings,
+}}/>
+            <section class="max-w-full text-base-content prose prose-xl prose-headings:text-primary prose-headings:font-semibold 
+                prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-a:text-secondary w-full">
+                <Content />
+            </section>
+        </article>
+    </TerminalWindow>
+</PageWrapperLayout>

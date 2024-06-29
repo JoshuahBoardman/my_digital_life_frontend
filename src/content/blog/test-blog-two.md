@@ -1,8 +1,7 @@
 ---
-layout: "../../layouts/blog.astro"
-title: 'Object Oriented Ideas'
+title: 'Test Two'
 description: 'How object orient design has deviated from what its purpose.'
-publishDate: 2021-04-13
+publishDate: 2024-04-13
 readTime: 45
 tags: ["oop", "fundamentals", "debate"]
 draft: true
