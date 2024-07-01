@@ -1,37 +1,39 @@
 ---
-import PageWrapperLayout from './PageWrapperLayout.astro';
-import TerminalWindow from '../components/TerminalWindow.astro';
-import ArticleHeader from '../components/ArticleHeader.astro';
+import { getCollection } from 'astro:content';
+import PageWrapperLayout from '../../layouts/PageWrapperLayout.astro';
+import TerminalWindow from '../../components/TerminalWindow.astro';
+import ArticleHeader from '../../components/ArticleHeader.astro';
 
-const {id} = Astro.params;
+export async function getStaticPaths() {
+  const portfolioEntries = await getCollection('portfolio');
+  return portfolioEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
 
-const project = {
-    title: 'Anime Insight',
-    description: 'Anime Insight is a web sight designed to help you find anime when you are not sure what to watch.', 
-    date: '8_12_2021', 
-    readTime: 25,
-    tags: ['apis', 'state_management', 'mobile_first_design', 'state_management', 'mobile_first_design'],
-    sections: ['Introduction', 'Introduction 2', 'Introduction 3',],
-    imgUrl: "/",
-    repoUrl: "/"
-};
-
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
 ---
 
-<PageWrapperLayout title={project.title}>
-    <TerminalWindow title={`project_${id}`}>
+<PageWrapperLayout title={entry.data.title}>
+    <TerminalWindow title={entry.slug}>
         <article class="w-full flex flex-col justify-center text-xl text-mischka gap-y-8 ">
-            <ArticleHeader articleHeader={project} />
+            <ArticleHeader articleHeader={{
+                title: entry.data.title,
+                description: entry.data.description,
+                date: entry.data.publishDate.toDateString(), 
+                readTime: entry.data.readTime,
+                tags: entry.data.tags,
+                sections: headings,
+                imgUrl: entry.data.imgUrl,
+                repoUrl: entry.data.repoUrl, 
+            }} />
             <!-- TODO: Create a content section -->
             <!-- TODO: Refactor to use md -->
-            {project.sections.map(section => (
-            <section id={section.replaceAll(' ', '-').toLowerCase()}class="w-full">
-                        <h3 class="text-3xl text-primary">{section}:</h3>
-                        <div class="w-full text-base pt-2">
-                            <p class="text-xl">{section}</p>
-                        </div>
-                    </section>
-               ))} 
+            <section class="max-w-full text-base-content prose prose-xl prose-headings:text-primary prose-headings:font-semibold 
+                prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-a:text-secondary w-full">
+                <Content />
+            </section>
         </article>
     </TerminalWindow>
 </PageWrapperLayout>
