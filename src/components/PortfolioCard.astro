@@ -1,16 +1,20 @@
 ---
 type Props = {
+    // TODO: Add an array of icons type for the icons at the top of the card
     project: {
         title: string;
-        shortDescription: string;
+        //shortDescription: string;
         description: string; 
-        postedDate: string; //image: string;
+        postedDate: string; 
+        image: string;
+        articleUrl: string;      
         }
     };
 
 const {project} = Astro.props;
 ---
-<!-- New Daisy UI Version -->
+
+<!-- TODO: Make the card a fixed height -->
 <div class=`card card-bordered border-2 border-primary rounded-regular p-4 flex flex-col  
 bg-base-100 relative gap-2`>
     <div class="w-full flex items-center justify-between"> 
@@ -23,21 +27,21 @@ bg-base-100 relative gap-2`>
         </div>
     </div>
     <figure class="rounded-regular w-full overflow-hidden">
-        <!-- TODO: make this link based on the database -->
-        <img src="/" class="w-full h-64 bg-mischka" />
+        <!-- TODO: make pass in alt text -->
+        <img src={project.image} alt="project" class="w-full h-64 bg-mischka" />
     </figure>
     <div class="card-body w-full p-0 gap-y-2">
-        <div class="rounded-regular">
+        <!--<div class="rounded-regular">
             <span class="text-xl">{project.shortDescription}</span>
-        </div>
+        </div> -->
         <div>
-            <!--Add fixed height -->
+            <!--Add fixed height and limit the length of the description -->
             <p class="text-xl">{project.description} ...</p>
         </div>
         <div class="w-full flex justify-between items-center">
             <span class="self-end text-lg"> Posted: {project.postedDate}</span>
             <div class="card-actions">
-                <a href="/" class="btn btn-secondary btn-outline border-2 rounded-regular 
+                <a href={project.articleUrl} class="btn btn-secondary btn-outline border-2 rounded-regular 
                      bg-base-100 text-xl">
                     Read More
                 </a>

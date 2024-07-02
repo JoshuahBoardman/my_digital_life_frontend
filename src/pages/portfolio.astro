@@ -1,23 +1,26 @@
 ---
+import { getCollection } from 'astro:content';      
 import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
 import PortfolioCard from '../components/PortfolioCard.astro';
 
-const projects = [{
-        title: 'Wordle Clone',
-        shortDescription: 'Front-end DOM manipulation',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus  interdum lobortis tellus, ac rutrum ligula. Nunc sem tellus, fringilla  ac lobortis ac, iaculis aliquam nibh.',  
-        postedDate: '2/12/23',
-    }];
-
+const portfolioEntries = await getCollection('portfolio');
 ---
 
 <PageWrapperLayout title='Portfolio'>
     <TerminalWindow title='portfolio'>
-    <div class="flex items-center justify-center flex-col gap-y-6"> 
-        {projects.map(project => (
-            <PortfolioCard project={project} />
-        ))}
-    </div>
+        <div class="flex items-center justify-center flex-col gap-y-6"> 
+            { portfolioEntries.sort((a,b) => ( 
+              a.data.displayOrder - b.data.displayOrder 
+            )).map(portfolioEntry => (
+                <PortfolioCard project={{
+                    title: portfolioEntry.data.title,
+                    description: portfolioEntry.data.description,  
+                    postedDate: portfolioEntry.data.publishDate.toDateString(),
+                    image: portfolioEntry.data.imgUrl,
+                    articleUrl: `/project/${portfolioEntry.slug}` 
+                }} />
+            ))}
+        </div>
     </TerminalWindow>
 </PageWrapperLayout>

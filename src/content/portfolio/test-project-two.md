@@ -1,5 +1,5 @@
 ---
-title: 'Anime Insight'
+title: 'Anime Insight Two'
 description: 'Anime Insight is a web sight designed to help you find anime when you are not sure what to watch.'
 publishDate: 2021-12-08
 readTime: 25
@@ -7,10 +7,10 @@ tags: ["apis", "state_management", "mobile_first_design", "state_management", "m
 draft: false
 imgUrl: "http://localhost:4321/project/test-project-one"
 repoUrl: "http://localhost:4321/project/test-project-one"
-displayOrder: 1
+displayOrder: 2
 ---
 
-## Test One 
+## Test Two 
 
 ### Second Header 
 
