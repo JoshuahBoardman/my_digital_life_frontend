@@ -16,9 +16,10 @@ const portfolioEntries = await getCollection('portfolio');
                 <PortfolioCard project={{
                     title: portfolioEntry.data.title,
                     description: portfolioEntry.data.description,  
-                    postedDate: portfolioEntry.data.publishDate.toDateString(),
-                    image: portfolioEntry.data.imgUrl,
-                    articleUrl: `/project/${portfolioEntry.slug}` 
+                    postedDate: portfolioEntry.data.publishDate.toDateString(), image: portfolioEntry.data.imgUrl,
+                    articleUrl: `/project/${portfolioEntry.slug}`,
+                    readTime: portfolioEntry.data.readTime,
+                    tags: portfolioEntry.data.tags
                 }} />
             ))}
         </div>

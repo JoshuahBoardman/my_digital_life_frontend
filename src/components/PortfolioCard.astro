@@ -1,4 +1,6 @@
 ---
+import MetatDataDisplay from '../components/MetaDataDisplay.astro'
+
 type Props = {
     // TODO: Add an array of icons type for the icons at the top of the card
     project: {
@@ -8,44 +10,31 @@ type Props = {
         postedDate: string; 
         image: string;
         articleUrl: string;      
+        readTime: number;
+        tags: string[];
         }
     };
 
 const {project} = Astro.props;
 ---
-
 <!-- TODO: Make the card a fixed height -->
 <div class=`card card-bordered border-2 border-primary rounded-regular p-4 flex flex-col  
-bg-base-100 relative gap-2`>
-    <div class="w-full flex items-center justify-between"> 
-        <h2 class="card-title text-3xl text-primary">{project.title}</h2>
-        <div class="flex gap-2">
-            <!-- TODO: make this dynamiclay generated -->
-            <img src="/" class="bg-texas rounded-regular overflow-hidden w-4 h-4" /> 
-            <img src="/" class="bg-texas rounded-regular overflow-hidden w-4 h-4" /> 
-            <img src="/" class="bg-texas rounded-regular overflow-hidden w-4 h-4" /> 
-        </div>
-    </div>
-    <figure class="rounded-regular w-full overflow-hidden">
-        <!-- TODO: make pass in alt text -->
-        <img src={project.image} alt="project" class="w-full h-64 bg-mischka" />
+bg-base-100 relative gap-y-4`>
+<h2 class="card-title text-3xl text-primary">{project.title}</h2>
+<figure class="rounded-regular w-full overflow-hidden">
+    <!-- TODO: make pass in alt text -->
+    <img src={project.image} alt="project" class="w-full h-64 bg-mischka" />
     </figure>
-    <div class="card-body w-full p-0 gap-y-2">
-        <!--<div class="rounded-regular">
-            <span class="text-xl">{project.shortDescription}</span>
-        </div> -->
-        <div>
-            <!--Add fixed height and limit the length of the description -->
-            <p class="text-xl">{project.description} ...</p>
-        </div>
-        <div class="w-full flex justify-between items-center">
-            <span class="self-end text-lg"> Posted: {project.postedDate}</span>
-            <div class="card-actions">
-                <a href={project.articleUrl} class="btn btn-secondary btn-outline border-2 rounded-regular 
-                     bg-base-100 text-xl">
-                    Read More
-                </a>
-            </div>
-        </div>
+    <div class="card-body w-full p-0 gap-y-4">
+        <MetatDataDisplay metaData={{
+            date: project.postedDate,
+            readTime: project.readTime,
+            tags: project.tags,
+        }} />  
+        <p class="text-xl">{project.description.slice(0, 99)}... 
+            <span>
+                <a href={project.articleUrl} class="link link-secondary text-xl">Read More</a>
+            </span>
+        </p>
     </div>
 </div>
