@@ -4,6 +4,7 @@ type Props = {
         date: string;
         readTime: number;
         tags: string[];
+        showTags: boolean;
     };
 }
 
@@ -20,27 +21,30 @@ const {displayTags, hiddenTags} = groupTags(metaData.tags, 3);
 ---
 
 <div class="w-full flex justify-start items-center text-lg text-accent flex-wrap gap-2">
-    <spa>{metaData.date}</span> 
+    <span>{metaData.date}</span> 
     <span>|</span>
     <span>{metaData.readTime} min</span>
-        <span>|</span>
-        <span>Tags</span>
-<!-- TODO: display on larger screen sizes -->
-<!--{displayTags.map(tag => (
-        <span class="badge badge-outline badge-primary text-lg">#{tag}</span>
-))}-->
-
-    <!-- TODO: show 3 tags on larger screen sizes -->
-    {((metaData.tags.length - displayTags.length) == 0)? "" :(
-       <!-- <span class={`${(metaData.tags.length - displayTags.length) == 0 || (`tooltip tooltip-bottom tooltip-primary`)}`} 
-            data-tip={hiddenTags.map(tag => tag).join(", ")}>
-            <span class="link link-accent link-hover font-bold">+{metaData.tags.length - displayTags.length}</span>
-        </span> -->
-        <!-- TODO: make the hover effect stay on screen when close to edges -->
-        <span class={`tooltip tooltip-bottom tooltip-primary`} 
-            data-tip={metaData.tags.map(tag => tag).join(", ")}>
-            <span class="link link-accent link-hover font-bold">+{metaData.tags.length}</span>
-         </span>
-
+    <span>|</span>
+    { metaData.showTags ? ( 
+        <>
+            <span class="hidden md:inline"> 
+                {displayTags.map(tag => (
+                    <span class="badge badge-outline badge-primary text-lg">#{tag}</span>
+                ))}
+            </span>
+            <span class="md:hidden">Tags</span>
+        </>
+        ) : (
+            <span>Tags</span>
     )}
+    <!-- TODO: make the hover effect stay on screen when close to edges -->
+   <span class={`${(metaData.tags.length - displayTags.length) == 0 || (`tooltip tooltip-bottom tooltip-primary`)}`} 
+    data-tip={hiddenTags.map(tag => tag).join(", ")}>
+        {metaData.showTags ? (
+            <span class="link link-accent link-hover font-bold hidden md:inline">+{metaData.tags.length - displayTags.length}</span>
+            <span class="link link-accent link-hover font-bold md:hidden">+{metaData.tags.length}</span>
+        ) : (
+            <span class="link link-accent link-hover font-bold">+{metaData.tags.length}</span>
+        )}
+    </span>
 </div> 
