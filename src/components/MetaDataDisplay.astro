@@ -39,7 +39,7 @@ const {displayTags, hiddenTags} = groupTags(metaData.tags, 3);
     )}
     <!-- TODO: make the hover effect stay on screen when close to edges -->
    <span class={`${(metaData.tags.length - displayTags.length) == 0 || (`tooltip tooltip-bottom tooltip-primary`)}`} 
-    data-tip={hiddenTags.map(tag => tag).join(", ")}>
+    data-tip={metaData.showTags ? (hiddenTags.map(tag => tag).join(", ")) : (metaData.tags.map(tag => tag).join(", "))}>
         {metaData.showTags ? (
             <span class="link link-accent link-hover font-bold hidden md:inline">+{metaData.tags.length - displayTags.length}</span>
             <span class="link link-accent link-hover font-bold md:hidden">+{metaData.tags.length}</span>
