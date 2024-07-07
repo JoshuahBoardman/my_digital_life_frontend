@@ -27,9 +27,9 @@ const {displayTags, hiddenTags} = groupTags(metaData.tags, 3);
     <span>|</span>
     { metaData.showTags ? ( 
         <>
-            <span class="hidden md:inline"> 
+            <span class="hidden md:inline-flex md:gap-2"> 
                 {displayTags.map(tag => (
-                    <span class="badge badge-outline badge-primary text-lg">#{tag}</span>
+                    <span class="badge badge-outline badge-accent text-lg pr-2">#{tag}</span>
                 ))}
             </span>
             <span class="md:hidden">Tags</span>
@@ -38,13 +38,30 @@ const {displayTags, hiddenTags} = groupTags(metaData.tags, 3);
             <span>Tags</span>
     )}
     <!-- TODO: make the hover effect stay on screen when close to edges -->
-   <span class={`${(metaData.tags.length - displayTags.length) == 0 || (`tooltip tooltip-bottom tooltip-primary`)}`} 
-    data-tip={metaData.showTags ? (hiddenTags.map(tag => tag).join(", ")) : (metaData.tags.map(tag => tag).join(", "))}>
-        {metaData.showTags ? (
-            <span class="link link-accent link-hover font-bold hidden md:inline">+{metaData.tags.length - displayTags.length}</span>
-            <span class="link link-accent link-hover font-bold md:hidden">+{metaData.tags.length}</span>
-        ) : (
-            <span class="link link-accent link-hover font-bold">+{metaData.tags.length}</span>
-        )}
-    </span>
+    {metaData.showTags ? (
+        <>
+            <!-- showTags true on larger screen -->
+            <span class={`hidden md:inline ${hiddenTags.length <= 0 || (`tooltip tooltip-bottom tooltip-primary`)}`} 
+             data-tip={metaData.showTags && (hiddenTags.map(tag => tag).join(", "))}>
+                <span class="link link-accent link-hover font-bold">
+                    {`${hiddenTags.length <= 0 ? "" : `+${hiddenTags.length}`}`}
+            </span>
+            </span>
+
+            <span class={`md:hidden ${metaData.tags.length <= 0 || (`tooltip tooltip-bottom tooltip-primary`)}`} 
+             data-tip={metaData.tags.map(tag => tag).join(",")}>
+                <span class="link link-accent link-hover font-bold">
+                    +{metaData.tags.length}
+                </span>
+            </span>
+        </>
+    ) : (
+    <!-- showTags false -->
+         <span class={`${metaData.tags.length <= 0 || (`tooltip tooltip-bottom tooltip-primary`)}`} 
+             data-tip={metaData.tags.map(tag => tag).join(", ")}>
+            <span class="link link-accent link-hover font-bold">
+                +{metaData.tags.length}
+            </span>
+        </span>
+    )}
 </div> 
