@@ -6,7 +6,8 @@ readTime: 25
 tags: ["apis", "state_management", "mobile_first_design", "state_management", "mobile_first_design"]
 draft: false
 imgUrl: "http://localhost:4321/project/test-project-one"
-repoUrl: "http://localhost:4321/project/test-project-one"
+repoUrl: "https://github.com/JoshuahBoardman/Anime-Insight-App"
+
 displayOrder: 3
 ---
 
