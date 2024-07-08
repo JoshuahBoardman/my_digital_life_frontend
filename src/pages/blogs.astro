@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
+import OldCard from '../components/OldCard.astro';
 import Card from '../components/Card.astro';
 
 const blogEntries = await getCollection('blog');
@@ -15,7 +16,7 @@ const blogEntries = await getCollection('blog');
                 Date.parse(b.data.publishDate.toDateString()) - Date.parse(a.data.publishDate.toDateString())
             )).map(blogEntry => (
             <!-- TODO: change the meta data interface  -->
-                <Card 
+         <!-- <OldCard 
                     title={blogEntry.data.title} 
                     metaData={{
                         date: blogEntry.data.publishDate.toDateString(),
@@ -24,7 +25,16 @@ const blogEntries = await getCollection('blog');
                     }}
                     postSnippet={blogEntry.data.description} 
                     href={`/blog/${blogEntry.slug}`}
-                />
+        /> -->
+
+        <Card  project={{
+            title:  blogEntry.data.title,
+            description: blogEntry.data.description, 
+            postedDate: blogEntry.data.publishDate.toDateString(), 
+            articleUrl: `/blog/${blogEntry.slug}`,            
+            readTime: blogEntry.data.readTime,
+            tags: blogEntry.data.tags,
+        }}/>
             ))}
         </div>
     </TerminalWindow>

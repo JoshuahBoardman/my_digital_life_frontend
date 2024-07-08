@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';      
 import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
-import PortfolioCard from '../components/PortfolioCard.astro';
+import Card from '../components/Card.astro';
 
 const portfolioEntries = await getCollection('portfolio');
 ---
@@ -13,7 +13,7 @@ const portfolioEntries = await getCollection('portfolio');
             { portfolioEntries.sort((a,b) => ( 
               a.data.displayOrder - b.data.displayOrder 
             )).map(portfolioEntry => (
-                <PortfolioCard project={{
+                <Card project={{
                     title: portfolioEntry.data.title,
                     description: portfolioEntry.data.description,  
                     postedDate: portfolioEntry.data.publishDate.toDateString(), 
