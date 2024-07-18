@@ -6,6 +6,6 @@ export const routes = {
     blog: "/blogs/",
     portfolio: "/portfolio/",
     aboutMe: "/about_me/",
+    contact: "/contact/",
     resume: "/", 
-    contact: "/"
 };
