@@ -1,22 +1,12 @@
 ---
 import PageWrapperLayout from '../layouts/PageWrapperLayout.astro';
 import TerminalWindow from '../components/TerminalWindow.astro';
-import Tabs from '../components/Tabs.astro';
-
-export const prerender = true
-
-const tabs = [
-    {name: "Introduction",url: "/about_me", focused: true},
-    {name: "Background", url: "/about_me/background", focused: false},
-    {name: "Goals", url: "/about_me/goals", focused: false},
-];
 
 ---
 
 <PageWrapperLayout title='About Me'>
     <TerminalWindow title='about_me'>
         <div class="w-full flex flex-col gap-y-6 text-primary text-xl">
-            <Tabs tabs={tabs} />
             <!-- Wizard Image -->
             <div id="placeholder_image" class="self-center w-full bg-mischka h-96 rounded-regular overflow-hidden">
                 <img src="/" alt={"placehoder image"} >
