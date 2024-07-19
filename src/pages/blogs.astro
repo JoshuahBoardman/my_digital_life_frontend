@@ -14,26 +14,14 @@ const blogEntries = await getCollection('blog');
             { blogEntries.sort((a,b) => ( 
                 Date.parse(b.data.publishDate.toDateString()) - Date.parse(a.data.publishDate.toDateString())
             )).map(blogEntry => (
-            <!-- TODO: change the meta data interface  -->
-         <!-- <OldCard 
-                    title={blogEntry.data.title} 
-                    metaData={{
-                        date: blogEntry.data.publishDate.toDateString(),
-                        readTime: blogEntry.data.readTime,
-                        tags: blogEntry.data.tags,
-                    }}
-                    postSnippet={blogEntry.data.description} 
-                    href={`/blog/${blogEntry.slug}`}
-        /> -->
-
-        <Card  project={{
-            title:  blogEntry.data.title,
-            description: blogEntry.data.description, 
-            postedDate: blogEntry.data.publishDate.toDateString(), 
-            articleUrl: `/blog/${blogEntry.slug}`,            
-            readTime: blogEntry.data.readTime,
-            tags: blogEntry.data.tags,
-        }}/>
+                <Card  project={{
+                    title:  blogEntry.data.title,
+                    description: blogEntry.data.description, 
+                    postedDate: blogEntry.data.publishDate.toDateString(), 
+                    articleUrl: `/blog/${blogEntry.slug}`,            
+                    readTime: blogEntry.data.readTime,
+                    tags: blogEntry.data.tags,
+                }}/>
             ))}
         </div>
     </TerminalWindow>
