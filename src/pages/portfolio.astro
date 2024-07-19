@@ -9,21 +9,25 @@ const portfolioEntries = await getCollection('portfolio');
 
 <PageWrapperLayout title='Portfolio'>
     <TerminalWindow title='portfolio'>
-        <div class="flex items-center justify-center flex-col gap-y-6"> 
-            { portfolioEntries.sort((a,b) => ( 
-              a.data.displayOrder - b.data.displayOrder 
-            )).map(portfolioEntry => (
-                <Card project={{
-                    title: portfolioEntry.data.title,
-                    description: portfolioEntry.data.description,  
-                    postedDate: portfolioEntry.data.publishDate.toDateString(), 
-                    image: portfolioEntry.data.imgUrl,
-                    articleUrl: `/project/${portfolioEntry.slug}`,
-                    repoUrl: portfolioEntry.data.repoUrl,
-                    readTime: portfolioEntry.data.readTime,
-                    tags: portfolioEntry.data.tags
-                }} />
-            ))}
+        <div class=" w-full flex justify-center items-center gap-y-6">
+            <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-10"> 
+                { portfolioEntries.sort((a,b) => ( 
+                  a.data.displayOrder - b.data.displayOrder 
+                )).map(portfolioEntry => (
+                    <div class="max-w-md md:max-w-96">
+                        <Card project={{
+                            title: portfolioEntry.data.title,
+                            description: portfolioEntry.data.description,  
+                            postedDate: portfolioEntry.data.publishDate.toDateString(), 
+                            image: portfolioEntry.data.imgUrl,
+                            articleUrl: `/project/${portfolioEntry.slug}`,
+                            repoUrl: portfolioEntry.data.repoUrl,
+                            readTime: portfolioEntry.data.readTime,
+                            tags: portfolioEntry.data.tags
+                        }} />
+                    </div>
+                ))}
+            </div>
         </div>
     </TerminalWindow>
 </PageWrapperLayout>

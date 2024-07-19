@@ -4,42 +4,50 @@ import TerminalWindow from '../components/TerminalWindow.astro';
 
 ---
 
+<!-- TODO: Add intermediate responsive design steps and some responsive corrections -->
 <PageWrapperLayout title='About Me'>
     <TerminalWindow title='about_me'>
-        <div class="w-full flex flex-col gap-y-6 text-primary text-xl">
+        <div class="w-full flex flex-col gap-y-6 text-primary text-xl lg:flex-row lg:items-center">
             <!-- Wizard Image -->
-            <div id="placeholder_image" class="self-center w-full bg-mischka h-96 rounded-regular overflow-hidden">
-                <img src="/" alt={"placehoder image"} >
+            <div class="flex justify-center items-center w-full lg:w-1/2">
+                <div id="placeholder_image" class="self-center w-full bg-mischka h-96 rounded-regular 
+                    overflow-hidden lg:w-11/12">
+                    <img src="/" alt={"placehoder image"} class=" lg:h-full">
+                </div>
             </div>
-            <div class="border-b-2 border-periwinkle-gray">
-                <h2 class="text-2xl font-bold pb-2">Joshuah Boardman<h2>
-            </div>
-            <div>
-                <p>🔭 I’m currently working on a game engine</p>
-            </div>
-            <div>
-                <p>🌱 I’m currently learning Rust and game development</p>
-            </div>
-            <div>
-                <p>👨‍💻 All of my projects are available at <a>joshuahboardman.com</a></p>
-            </div>
-            <div>
-                <p>📝 When I have things to talk about I write articles on TBD</p>
-            </div>
-            <div>
-                <p>📫 How to reach me joshuahboardman@gmail.com</p>
-            </div>
-            <div>
-                <p>📄 Know about my experiences Resume</p>
-            </div>
-            <!-- TODO: use DaisyUI color names -->
-            <div class="w-fit flex self-center bg-texas">
-                <div class="w-10 h-10 bg-mischka"></div>
-                <div class="w-10 h-10 bg-santas-gray"></div>
-                <div class="w-10 h-10 bg-periwinkle-gray"></div>
-                <div class="w-10 h-10 bg-madang"></div>
-                <div class="w-10 h-10 bg-texas"></div>
-                <div class="w-10 h-10 bg-sundown"></div>
+            <div class="flex justify-center items-center w-full lg:w-1/2">
+                <div class="w-full flex flex-col gap-y-6 lg:w-11/12">
+                    <div class="border-b-2 border-periwinkle-gray">
+                        <h2 class="text-2xl font-bold pb-2">Joshuah Boardman<h2>
+                    </div>
+                    <div>
+                        <p>🔭 I’m currently working on a game engine</p>
+                    </div>
+                    <div>
+                        <p>🌱 I’m currently learning Rust and game development</p>
+                    </div>
+                    <div>
+                        <p>👨‍💻 All of my projects are available at <a>joshuahboardman.com</a></p>
+                    </div>
+                    <div>
+                        <p>📝 When I have things to talk about I write articles on TBD</p>
+                    </div>
+                    <div>
+                        <p>📫 How to reach me joshuahboardman@gmail.com</p>
+                    </div>
+                    <div>
+                        <p>📄 Know about my experiences Resume</p>
+                    </div>
+                    <!-- TODO: use DaisyUI color names -->
+                    <div class="w-fit flex self-center bg-texas lg:self-start">
+                        <div class="w-10 h-10 bg-mischka"></div>
+                        <div class="w-10 h-10 bg-santas-gray"></div>
+                        <div class="w-10 h-10 bg-periwinkle-gray"></div>
+                        <div class="w-10 h-10 bg-madang"></div>
+                        <div class="w-10 h-10 bg-texas"></div>
+                        <div class="w-10 h-10 bg-sundown"></div>
+                    </div>
+                </div>
             </div>
         <div>
     </TerminalWindow>
