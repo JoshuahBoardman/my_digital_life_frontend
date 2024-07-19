@@ -14,7 +14,7 @@ export default {
             'mischka': '#DCDCE6',
         },
         boxShadow: {
-            'neo-brute': '8px 8px 4px 0px rgba(0,0,0,0.2)',
+            'neo-brute': '6px 6px 4px 0px rgba(0,0,0,0.2)',
             'inset': 'inset 0px 2px 6px 0px rgba(0, 0, 0, 0.5)',
         },
         borderRadius: {
