@@ -21,12 +21,12 @@ import { routes } from '../routes.ts';
                 </a>
             </div>
             <div class="navbar-center">
-                <a href={routes.home} class="btn btn-ghost text-2xl">Deviore</a>
+                <a href={routes.home} class="btn btn-ghost text-xl">Deviore</a>
             </div>
             <div class="navbar-end">
                 <!-- TODO: swap to hamburger at small sizes and basic nav links at large sizes -->
                 <div class="hidden flex-none lg:block">
-                    <ul class="menu menu-horizontal px-1 text-xl">
+                    <ul class="menu menu-horizontal px-1 text-lg">
                         <li><a href={routes.blog}>Blog</a></li>
                         <li><a href={routes.portfolio}>Portfolio</a></li>
                         <li>
@@ -34,7 +34,7 @@ import { routes } from '../routes.ts';
                                 <summary>
                                     More          
                                 </summary>
-                                <ul class="z-50 bg-neutral shadow-neo-brute shadow menu dropdown-content rounded-regular w-52 text-xl">
+                                <ul class="z-50 bg-neutral shadow-neo-brute shadow menu dropdown-content rounded-regular w-52 text-lg">
                                     <li><a href={routes.aboutMe}>About Me</a></li>
                                     <li><a href={routes.contact}>Contact</a></li>
                                 </ul>
@@ -53,7 +53,7 @@ import { routes } from '../routes.ts';
 
  <div class="drawer-side">
     <label for="my-drawer-3" aria-label="close sidebar z-50" class="drawer-overlay"></label> 
-    <ul class="menu w-80 min-h-full bg-base-200 text-xl flex">
+    <ul class="menu w-80 min-h-full bg-base-200 text-lg flex">
             <li><a href={routes.blog}>Blog</a></li>
             <li><a href={routes.portfolio}>Portfolio</a></li>
             <li><a href={routes.aboutMe}>About Me</a></li>
