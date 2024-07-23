@@ -17,7 +17,7 @@ const { Content, headings } = await entry.render();
 
 <PageWrapperLayout title={entry.data.title}>
     <TerminalWindow title={entry.slug}>
-        <article class="w-full flex flex-col justify-center text-xl text-mischka gap-y-8 ">
+        <article class="w-full flex flex-col justify-center text-xl text-mischka gap-y-8 md:px-32 xl:px-72">
             <ArticleHeader articleHeader={{
                 title: entry.data.title,
                 description: entry.data.description,
