@@ -27,13 +27,7 @@ const portfolioCollection = defineCollection({
     }),
 });
 
-const bookShelfCollection = defineCollection({
-    type: 'content',
-    schema: z.object({}),
-});
-
 export const collections = {
     'blog': blogCollection,
     'portfolio': portfolioCollection,
-    'bookShelf': bookShelfCollection,
 };
