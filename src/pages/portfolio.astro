@@ -9,8 +9,8 @@ const portfolioEntries = await getCollection('portfolio');
 
 <PageWrapperLayout title='Portfolio'>
     <TerminalWindow title='portfolio'>
-        <div class=" w-full flex justify-center items-center gap-y-6">
-            <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-10"> 
+        <div class=" w-full flex justify-center items-center">
+            <div class="grid gap-8 md:grid-cols-2 xl:w-11/12 xl:grid-cols-3 xl:gap-10"> 
                 { portfolioEntries.sort((a,b) => ( 
                   a.data.displayOrder - b.data.displayOrder 
                 )).map(portfolioEntry => (

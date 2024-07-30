@@ -10,19 +10,21 @@ const blogEntries = await getCollection('blog');
 
 <PageWrapperLayout title='Blogs'>
     <TerminalWindow title='blog_posts'>
-        <div class="w-full flex flex-col items-center gap-y-6">
-            { blogEntries.sort((a,b) => ( 
-                Date.parse(b.data.publishDate.toDateString()) - Date.parse(a.data.publishDate.toDateString())
-            )).map(blogEntry => (
-                <Card  project={{
-                    title:  blogEntry.data.title,
-                    description: blogEntry.data.description, 
-                    postedDate: blogEntry.data.publishDate.toDateString(), 
-                    articleUrl: `/blog/${blogEntry.slug}`,            
-                    readTime: blogEntry.data.readTime,
-                    tags: blogEntry.data.tags,
-                }}/>
-            ))}
+        <div class="w-full flex items-center justify-center">
+            <div class="w-full flex flex-col gap-y-6 lg:w-11/12">
+                { blogEntries.sort((a,b) => ( 
+                    Date.parse(b.data.publishDate.toDateString()) - Date.parse(a.data.publishDate.toDateString())
+                )).map(blogEntry => (
+                    <Card project={{
+                        title:  blogEntry.data.title,
+                        description: blogEntry.data.description, 
+                        postedDate: blogEntry.data.publishDate.toDateString(), 
+                        articleUrl: `/blog/${blogEntry.slug}`,            
+                        readTime: blogEntry.data.readTime,
+                        tags: blogEntry.data.tags,
+                    }}/>
+                ))}
+            </div>
         </div>
     </TerminalWindow>
 </PageWrapperLayout>

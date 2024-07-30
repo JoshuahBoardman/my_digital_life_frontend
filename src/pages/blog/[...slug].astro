@@ -22,6 +22,8 @@ const { Content, headings } = await entry.render();
     <!-- TODO: set the window titel to the page name from the URL -->
     <!-- TODO: Create a custom slug for each page, send it through the frontmatter and then display here -->
     <TerminalWindow title={entry.slug}>
+
+<div class="w-full flex justify-center items-center">
         <article class="w-full flex flex-col justify-center items-center gap-y-10 text-mischka md:px-32 xl:px-72">
             <ArticleHeader articleHeader={{
                 title: entry.data.title,
@@ -35,5 +37,6 @@ const { Content, headings } = await entry.render();
                 <Content />
             </section>
         </article>
+</div>
     </TerminalWindow>
 </PageWrapperLayout>
