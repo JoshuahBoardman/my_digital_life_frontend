@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+export const prerender = true
 import NavBar from "../components/NavBar.astro";
 
 interface Props {
@@ -20,6 +22,7 @@ const { title, isHome=false} = Astro.props;
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 		<title>{title}</title>
+        <ViewTransitions />
 	</head>
     <body class="bg-tuna">
         <div class="flex items-center justify-center h-screen max-w-screen-2xl py-4 selection:bg-primary selection:text-base-100">
